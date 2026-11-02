@@ -1,0 +1,20 @@
+/* BotShopFX (02-11-2026): la página de espera de la raíz mientras la web está escondida. Aparte de estilo.css a
+ * propósito: la raíz no carga nada de la carpeta escondida, así que su código no la delata. */
+:root { --tinta: #0B1726; --texto: #26364A; --suave: #4B5A6C; --fondo: #EEF1F5; --cobalto: #2445E8; --cobalto-oscuro: #1630B8; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--fondo); color: var(--tinta); font-family: Manrope, 'Segoe UI', system-ui, sans-serif; font-size: 16px; line-height: 1.55; }
+a { color: var(--cobalto); }
+a:hover { color: var(--cobalto-oscuro); }
+a:focus-visible { outline: 3px solid var(--cobalto); outline-offset: 3px; }
+svg { max-width: 100%; height: auto; }
+.espera { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 48px 16px; }
+.espera-marca { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 22px; }
+.espera-marca svg { width: 132px; }
+.marca-texto { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 72px; letter-spacing: .02em; line-height: 1; display: inline-flex; align-items: baseline; }
+.marca-fx { font-family: Manrope, sans-serif; font-size: 19px; font-weight: 800; letter-spacing: .1em; color: var(--cobalto); margin: 0 0 0 6px; }
+.espera-antetitulo { margin: 40px 0 0; font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--suave); }
+.espera-lema { margin: 10px 0 0; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: clamp(40px, 7vw, 72px); line-height: .95; text-transform: uppercase; }
+.espera-texto { margin: 22px 0 0; font-size: 19px; font-weight: 700; color: var(--texto); }
+.espera-contacto { margin: 10px 0 0; font-size: 14px; color: var(--suave); }
+@media (max-width: 480px) { .marca-texto { font-size: 56px; } .marca-fx { font-size: 15px; } .espera-marca svg { width: 104px; } }
