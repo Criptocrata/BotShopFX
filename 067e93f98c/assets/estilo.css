@@ -7,6 +7,8 @@
   --cobalto: #2445E8; --cobalto-oscuro: #1630B8; --cobalto-claro: #E3E9FF;
   --verde: #0B7A50; --verde-claro: #E1F3EA; --rojo: #C42B3B;
   --ambar: #6B4E00; --ambar-claro: #FFF1C7; --gris: #3E4B5A; --gris-claro: #E4E8ED;
+  /* 05-11-2026: sin ventaja (pizarra), en pausa (naranja) y sustituido (violeta). */
+  --pizarra: #3D4F66; --pizarra-claro: #E6EBF2; --naranja: #8A3B00; --naranja-claro: #FFE6D2; --violeta: #4A3C8C; --violeta-claro: #ECE8FA;
   --display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
   --sans: Manrope, 'Segoe UI', system-ui, sans-serif;
   --sombra: 0 1px 2px rgba(11, 23, 38, .06), 0 24px 48px -24px rgba(11, 23, 38, .28);
@@ -48,6 +50,9 @@ img, svg { max-width: 100%; }
 .boton-oscuro { background: var(--tinta); color: var(--blanco); padding: 13px 20px; border: 0; font-weight: 700; font-size: 15px; }
 .boton-oscuro:hover { background: #22324A; color: var(--blanco); }
 .menu .boton { padding: 12px 20px; font-weight: 700; color: var(--blanco); }
+/* El cambio de lengua (05-11-2026), como en botfactoryfx.com: EN / ES, a la página gemela. */
+.menu .idioma { font-size: 13px; font-weight: 800; letter-spacing: .08em; padding: 6px 12px; border: 1.5px solid #C5CEDA; border-radius: 999px; }
+.menu .idioma:hover { border-color: var(--tinta); }
 
 /* Etiquetas */
 .etiqueta { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .06em; padding: 5px 9px; border-radius: 6px; white-space: nowrap; }
@@ -56,6 +61,9 @@ img, svg { max-width: 100%; }
 .e-probado { color: var(--verde); background: var(--verde-claro); }
 .e-vigilado { color: var(--ambar); background: var(--ambar-claro); }
 .e-retirado { color: var(--gris); background: var(--gris-claro); }
+.e-sinventaja { color: var(--pizarra); background: var(--pizarra-claro); }
+.e-pausado { color: var(--naranja); background: var(--naranja-claro); }
+.e-sustituido { color: var(--violeta); background: var(--violeta-claro); }
 .cambio { font-weight: 800; font-size: 15px; padding: 5px 9px; border-radius: 6px; white-space: nowrap; }
 .cambio.sube { background: var(--verde-claro); }
 .cambio.baja { background: #FBE4E6; }
@@ -143,6 +151,9 @@ img, svg { max-width: 100%; }
 .estados .s-probado { background: var(--verde-claro); } .estados .s-probado .mini { color: var(--verde); }
 .estados .s-vigilado { background: var(--ambar-claro); } .estados .s-vigilado .mini { color: var(--ambar); }
 .estados .s-retirado { background: var(--gris-claro); } .estados .s-retirado .mini { color: var(--gris); }
+.estados .s-sinventaja { background: var(--pizarra-claro); } .estados .s-sinventaja .mini { color: var(--pizarra); }
+.estados .s-pausado { background: var(--naranja-claro); } .estados .s-pausado .mini { color: var(--naranja); }
+.estados .s-sustituido { background: var(--violeta-claro); } .estados .s-sustituido .mini { color: var(--violeta); }
 
 /* Vende tu robot */
 .vender-sitio { padding-bottom: 88px; }
@@ -153,6 +164,7 @@ img, svg { max-width: 100%; }
 .vender ol { flex: 1 1 420px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .vender li { background: var(--blanco); border-radius: 16px; padding: 18px 22px; display: flex; gap: 16px; align-items: baseline; }
 .vender li .cifra-paso { font-size: 32px; }
+.vender .regla-autor { flex: 1 1 100%; max-width: none; margin: 0; font-size: 15px; font-weight: 600; color: var(--texto); }
 
 /* Retirados */
 .retirados { padding-top: 80px; padding-bottom: 80px; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
@@ -164,6 +176,8 @@ img, svg { max-width: 100%; }
 .retirado h3 a { color: var(--tinta); }
 .caida { margin: 18px 0 0; font-family: var(--display); font-weight: 900; font-size: 48px; line-height: 1; color: var(--rojo); }
 .caida span { font-size: 28px; }
+.caida.sube { color: var(--verde); }
+.caida.igual { color: var(--suave); }
 .retirado .porque { margin: 14px 0 0; color: var(--texto); }
 
 /* Preguntas */
