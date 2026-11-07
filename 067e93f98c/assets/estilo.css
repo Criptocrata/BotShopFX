@@ -89,6 +89,8 @@ img, svg { max-width: 100%; }
 .billete h2 { margin: 18px 0 2px; font-size: 24px; font-weight: 800; line-height: 1.2; }
 .billete h2 a { color: var(--tinta); text-decoration: none; }
 .subtitulo { margin: 0; color: var(--suave); font-size: 15px; font-weight: 600; }
+/* El nombre técnico, debajo del propio (07-11-2026), como en la Fábrica. */
+.tecnico { margin: 0 0 2px; color: var(--suave); font-size: 13px; font-weight: 600; overflow-wrap: anywhere; }
 .precios { display: flex; align-items: flex-end; gap: 22px; margin-top: 24px; flex-wrap: wrap; }
 .precios .cambio { margin-bottom: 8px; }
 .mini { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--suave); text-transform: uppercase; }
@@ -126,6 +128,7 @@ img, svg { max-width: 100%; }
 .tabla .apagada { color: var(--suave); }
 .tabla .robot { color: var(--tinta); text-decoration: none; font-weight: 800; }
 .tabla .quien { color: var(--suave); font-size: 13px; font-weight: 600; }
+.tabla .tecnico { font-size: 12px; }
 .nota { margin: 18px 0 0; font-size: 14px; color: var(--suave); }
 .vacio { padding: 28px 16px; text-align: center; color: var(--suave); }
 
@@ -205,6 +208,8 @@ img, svg { max-width: 100%; }
 .ficha-texto { flex: 1 1 560px; min-width: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .ficha-texto h1 { margin: 18px 0 0; font-family: var(--display); font-weight: 900; font-size: clamp(56px, 6.4vw, 92px); line-height: .9; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
+.ficha-texto .tecnico { margin: 14px 0 0; font-size: 14px; }
+.ficha-texto .tecnico + .subtitulo { margin-top: 6px; }
 .ficha-texto .subtitulo { margin-top: 16px; font-size: 18px; color: var(--texto); }
 .llano { margin: 18px 0 0; max-width: 620px; color: var(--texto); }
 .procedencia { margin: 12px 0 0; font-size: 14px; color: var(--suave); }
