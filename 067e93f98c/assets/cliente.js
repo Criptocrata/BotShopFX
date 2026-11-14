@@ -133,6 +133,29 @@
     pintar();
   }
 
+  /* Su recorrido, en la ficha (15-11-2026): toda su historia o sólo la cuarentena, y con o sin su mercado encima. El
+   * dueño: «la opción de sobreponer la curva del backtest con el gráfico histórico y real». Sin esto se ve la historia
+   * entera con las dos líneas. */
+  document.querySelectorAll("[data-recorrido]").forEach(function (caja) {
+    var vistas = caja.querySelectorAll("button[data-vista]");
+    vistas.forEach(function (b) {
+      b.addEventListener("click", function () {
+        vistas.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        caja.querySelectorAll("[data-vista-de]").forEach(function (v) { v.hidden = v.getAttribute("data-vista-de") !== b.getAttribute("data-vista"); });
+      });
+    });
+    caja.querySelectorAll("button[data-capa]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var ver = b.getAttribute("aria-pressed") !== "true";
+        b.setAttribute("aria-pressed", ver ? "true" : "false");
+        if (ver) caja.removeAttribute("data-sin-" + b.getAttribute("data-capa"));
+        else caja.setAttribute("data-sin-" + b.getAttribute("data-capa"), "");
+      });
+    });
+    var grupo = caja.querySelector("[data-vistas]");
+    if (grupo) grupo.hidden = false;
+  });
+
   /* La compra */
   var MENSAJES_COMPRA = {
     400: di("That email doesn't look right.", "Ese correo no parece bien escrito."),

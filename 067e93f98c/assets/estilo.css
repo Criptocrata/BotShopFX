@@ -146,6 +146,20 @@ img, svg { max-width: 100%; }
 .mitad { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 20px 22px; }
 .mitad h3 { margin: 0 0 6px; font-size: 17px; font-weight: 800; }
 .mitad .chispa { margin-top: 14px; }
+/* Su mercado al lado del robot (15-11-2026): la leyenda de las dos líneas y, desde la salida, las dos cifras. */
+.mitad .leyenda { margin-top: 10px; font-size: 13px; }
+.frente-al-mercado { margin: 10px 0 0; font-size: 13.5px; color: var(--suave); }
+.frente-al-mercado strong { font-weight: 800; }
+.panel > .frente-al-mercado { margin-top: 14px; font-size: 15px; }
+/* Su recorrido en la ficha: toda su historia o sólo la cuarentena, y con o sin su mercado (los botones, cliente.js). */
+.mandos { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 24px; margin: 18px 0 14px; }
+.vistas, .capas { display: flex; flex-wrap: wrap; gap: 8px; }
+.mandos button { font: inherit; font-size: 13.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--borde); background: var(--blanco); color: var(--tinta); cursor: pointer; }
+.vistas button[aria-pressed="true"] { background: var(--tinta); border-color: var(--tinta); color: var(--blanco); }
+.capas button[aria-pressed="false"] { color: var(--suave); text-decoration: line-through; }
+.capas button[aria-pressed="false"] svg { opacity: .35; }
+.recorrido[data-sin-robot] .capa-robot, .recorrido[data-sin-mercado] .capa-mercado { display: none; }
+@media (max-width: 640px) { .mandos button { padding: 6px 11px; font-size: 13px; } }
 .metricas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 12px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--raya); }
 .metricas dt { font-size: 12px; color: var(--suave); }
 .metricas dd { margin: 2px 0 0; font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -274,7 +288,7 @@ img, svg { max-width: 100%; }
 .leyenda { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; font-weight: 600; color: var(--texto); }
 .leyenda li { display: flex; align-items: center; gap: 8px; }
 .grafico { display: flex; gap: 12px; margin-top: 22px; }
-.eje-y { display: flex; flex-direction: column; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--suave); font-variant-numeric: tabular-nums; padding: 0 0 26px; text-align: right; width: 44px; flex: none; }
+.eje-y { display: flex; flex-direction: column; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--suave); font-variant-numeric: tabular-nums; padding: 0 0 26px; text-align: right; min-width: 44px; white-space: nowrap; flex: none; }
 .grafico-dibujo { flex: 1 1 auto; min-width: 0; }
 .grafico-dibujo svg { display: block; width: 100%; height: 280px; }
 .eje-x { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--suave); margin-top: 8px; }

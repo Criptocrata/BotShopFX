@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/067e93f98c/assets/estilo.css?v=65e3298eb4">
-<script src="/067e93f98c/assets/cliente.js?v=65e3298eb4" defer></script>
+<link rel="stylesheet" href="/067e93f98c/assets/estilo.css?v=1e350d699c">
+<script src="/067e93f98c/assets/cliente.js?v=1e350d699c" defer></script>
 </head>
 <body data-cobro="https://cobro.botshopfx.com" data-venta="cerrada">
 <div class="aviso">Vista previa · BotShopFX aún no ha abierto. Son los robots de verdad de la cuarentena de nuestra fábrica; no se vende nada.</div>
@@ -87,6 +87,7 @@
     <div class="eje-x" aria-hidden="true"><span>17 oct</span><span>23 oct</span><span>31 oct</span><span>7 nov</span><span>14 nov</span></div>
   </div>
 </div>
+    <p class="frente-al-mercado">Desde la salida, su mercado (S&amp;P 500): <strong class="baja">−1,5 %</strong> · el robot, a riesgo igual: <strong class="sube">+8,9 %</strong></p>
     <p class="nota">La línea de 100 $ es su precio de salida. Cada día, a las 09:00 de Madrid, se le pone precio con las operaciones cerradas hasta entonces.</p>
   </section>
 
@@ -101,24 +102,55 @@
 
   <section class="panel" aria-labelledby="backtest">
     <div class="panel-cabeza">
-      <h2 id="backtest">Su backtest</h2>
+      <h2 id="backtest">Su backtest y su cuarentena</h2>
       <span class="mini">2012–2026 · 74 operaciones · +556 %, +14,0 % al año</span>
     </div>
-    <div class="grafico">
-  <div class="eje-y" aria-hidden="true"><span>+600 %</span><span>+400 %</span><span>+200 %</span><span>0 %</span></div>
+    <div class="recorrido" data-recorrido>
+    <div class="mandos">
+      <div class="vistas" role="group" aria-label="Qué enseñar" data-vistas hidden>
+        <button type="button" data-vista="todo" aria-pressed="true">Todo, desde 2012</button>
+        <button type="button" data-vista="real" aria-pressed="false">Sólo la cuarentena</button>
+      </div>
+      <div class="capas" role="group" aria-label="Líneas">
+        <button type="button" data-capa="robot" aria-pressed="true"><svg width="26" height="10" aria-hidden="true"><line x1="0" y1="5" x2="13" y2="5" stroke="#2445E8" stroke-width="3"/><line x1="13" y1="5" x2="26" y2="5" stroke="#0B7A50" stroke-width="3"/></svg>El robot, a riesgo igual</button>
+        <button type="button" data-capa="mercado" aria-pressed="true"><svg width="26" height="10" aria-hidden="true"><line x1="0" y1="5" x2="26" y2="5" stroke="#98A3B3" stroke-width="3"/></svg>Su mercado: S&amp;P 500</button>
+      </div>
+    </div>
+    <div data-vista-de="todo"><div class="grafico">
+  <div class="eje-y" aria-hidden="true"><span>+800 %</span><span>+600 %</span><span>+400 %</span><span>+200 %</span><span>0 %</span></div>
   <div class="grafico-dibujo">
-    <svg viewBox="0 0 1000 260" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +556 % en total, 74 operaciones">
+    <svg viewBox="0 0 1000 260" preserveAspectRatio="none" overflow="visible" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +556 % en total, 74 operaciones; su mercado, S&amp;P 500, +453 %; en cuarentena desde el 16 oct 2026, +8,9 %; su mercado, del principio a hoy, +444 %">
 <line x1="0" y1="0.0" x2="1000" y2="0.0" stroke="#E6EAF0" stroke-width="1"/>
-<line x1="0" y1="86.7" x2="1000" y2="86.7" stroke="#E6EAF0" stroke-width="1"/>
-<line x1="0" y1="173.3" x2="1000" y2="173.3" stroke="#E6EAF0" stroke-width="1"/>
+<line x1="0" y1="65.0" x2="1000" y2="65.0" stroke="#E6EAF0" stroke-width="1"/>
+<line x1="0" y1="130.0" x2="1000" y2="130.0" stroke="#E6EAF0" stroke-width="1"/>
+<line x1="0" y1="195.0" x2="1000" y2="195.0" stroke="#E6EAF0" stroke-width="1"/>
 <line x1="0" y1="260.0" x2="1000" y2="260.0" stroke="#B9C3CF" stroke-width="1.2"/>
-<polygon fill="#2445E8" fill-opacity=".07" points="0.0,260.0 0.0,260.0 0.0,259.1 9.9,258.6 41.8,256.9 84.0,256.1 96.8,256.0 102.9,254.9 116.0,253.7 125.7,253.5 138.6,252.2 161.2,251.7 174.3,249.9 185.4,248.7 192.0,246.3 218.6,245.2 224.7,243.6 237.1,242.7 240.1,240.0 249.0,237.4 254.4,234.6 262.7,234.8 282.1,233.3 291.6,230.2 307.6,228.6 316.5,226.9 327.4,226.2 343.3,225.4 347.7,224.1 369.8,222.7 372.8,221.1 403.4,217.5 415.2,216.8 464.6,213.1 495.4,209.1 509.9,209.1 546.2,227.9 546.8,224.7 593.5,221.2 610.6,217.7 616.7,213.9 630.0,210.1 637.3,206.0 655.1,201.8 657.8,197.3 677.8,192.7 680.0,187.9 683.8,182.9 684.0,177.7 684.4,172.2 686.7,166.5 686.9,160.6 694.9,154.3 698.7,184.1 705.5,179.0 726.6,173.5 744.5,169.5 755.1,165.6 756.8,159.6 788.0,153.4 797.1,150.3 801.1,143.6 835.4,138.4 852.3,131.2 854.9,123.8 860.8,116.0 871.7,109.5 880.2,101.1 900.8,92.3 949.2,83.1 955.7,73.5 964.6,63.5 966.0,53.1 967.3,42.2 968.6,30.8 1000.0,19.0 1000.0,260.0"/>
-<polyline fill="none" stroke="#2445E8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="0.0,260.0 0.0,259.1 9.9,258.6 41.8,256.9 84.0,256.1 96.8,256.0 102.9,254.9 116.0,253.7 125.7,253.5 138.6,252.2 161.2,251.7 174.3,249.9 185.4,248.7 192.0,246.3 218.6,245.2 224.7,243.6 237.1,242.7 240.1,240.0 249.0,237.4 254.4,234.6 262.7,234.8 282.1,233.3 291.6,230.2 307.6,228.6 316.5,226.9 327.4,226.2 343.3,225.4 347.7,224.1 369.8,222.7 372.8,221.1 403.4,217.5 415.2,216.8 464.6,213.1 495.4,209.1 509.9,209.1 546.2,227.9 546.8,224.7 593.5,221.2 610.6,217.7 616.7,213.9 630.0,210.1 637.3,206.0 655.1,201.8 657.8,197.3 677.8,192.7 680.0,187.9 683.8,182.9 684.0,177.7 684.4,172.2 686.7,166.5 686.9,160.6 694.9,154.3 698.7,184.1 705.5,179.0 726.6,173.5 744.5,169.5 755.1,165.6 756.8,159.6 788.0,153.4 797.1,150.3 801.1,143.6 835.4,138.4 852.3,131.2 854.9,123.8 860.8,116.0 871.7,109.5 880.2,101.1 900.8,92.3 949.2,83.1 955.7,73.5 964.6,63.5 966.0,53.1 967.3,42.2 968.6,30.8 1000.0,19.0"/>
+<line x1="994.7" y1="0" x2="994.7" y2="260" stroke="#4B5A6C" stroke-width="1.4" stroke-dasharray="6 5"/>
+<polyline class="capa-mercado" fill="none" stroke="#98A3B3" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" points="0.0,260.0 5.1,261.1 11.6,260.9 18.4,261.1 25.0,259.4 31.6,258.6 38.1,259.0 44.9,259.0 51.5,257.9 58.0,257.0 64.6,255.8 71.4,255.0 77.9,254.4 84.5,253.2 91.1,253.5 97.7,252.1 104.4,251.2 111.0,250.1 117.6,249.5 124.1,250.3 131.1,249.3 137.7,248.7 144.2,247.9 150.8,246.5 157.4,247.3 164.2,245.5 170.7,248.4 177.3,244.5 183.9,243.7 190.6,244.6 197.2,243.0 203.8,243.8 210.4,243.2 217.1,243.2 223.7,242.9 230.3,246.9 236.8,247.5 243.4,243.1 250.2,244.3 256.7,247.4 263.3,247.5 269.9,244.7 276.7,244.0 283.2,243.2 289.8,242.5 296.4,241.2 302.9,242.3 309.9,242.2 316.5,240.5 323.0,239.9 329.6,238.6 336.4,236.7 343.0,237.4 349.5,236.3 356.1,235.2 362.9,234.4 369.4,234.8 376.0,232.6 382.6,232.0 389.2,229.6 395.9,225.9 402.5,228.8 409.1,230.4 415.6,229.2 422.4,227.2 429.0,226.6 435.5,225.4 442.1,224.0 448.9,228.5 455.5,230.7 462.0,231.6 468.6,227.3 475.2,226.6 482.1,223.5 488.7,228.3 495.3,222.4 501.8,224.1 508.6,222.1 515.2,221.9 521.8,218.9 528.3,216.8 534.9,216.4 541.7,226.0 548.4,227.6 555.0,222.8 561.6,220.9 568.3,215.6 574.9,211.9 581.5,211.2 588.1,209.4 594.8,205.2 602.0,202.0 608.5,200.8 615.1,196.7 621.7,194.1 628.4,192.8 635.0,190.8 641.6,187.2 648.2,190.0 654.9,182.9 661.5,182.2 668.3,183.0 674.8,189.6 681.6,185.8 688.5,195.4 695.1,196.0 701.7,201.1 708.3,192.3 715.0,200.6 721.6,203.3 728.2,199.4 735.1,202.1 741.9,196.6 748.5,199.5 755.0,195.6 761.6,195.2 768.2,189.2 774.9,187.3 781.5,187.7 788.1,191.0 794.7,186.6 801.8,180.7 808.6,177.4 815.1,173.2 821.9,171.6 828.6,168.1 835.2,163.9 841.8,165.4 848.4,161.0 854.9,158.7 861.7,151.6 868.3,150.6 874.9,151.8 881.4,151.2 888.4,162.2 895.1,159.9 901.7,151.4 908.3,145.5 914.9,141.0 921.6,136.1 928.2,130.6 934.8,132.0 941.3,129.4 948.1,129.6 954.7,137.1 961.4,125.3 968.0,114.8 974.8,116.2 981.3,110.5 987.9,112.7 988.5,113.4 988.7,114.2 988.9,115.2 989.0,113.3 989.2,112.7 989.8,110.2 990.0,110.2 990.2,111.5 990.4,112.0 990.5,110.7 991.1,112.0 991.3,112.2 991.5,112.6 991.7,112.5 991.9,111.3 992.4,109.9 992.6,108.7 992.8,109.4 993.0,110.1 993.2,109.1 993.7,109.4 993.9,109.4 994.1,111.4 994.3,111.0 994.5,112.9 995.1,112.0 995.2,110.9 995.4,110.5 995.6,112.7 995.8,113.4 996.4,112.4 996.6,111.4 996.7,111.3 996.9,112.4 997.1,114.7 997.7,115.3 997.9,114.8 998.1,111.7 998.2,120.7 998.4,119.4 999.0,115.3 999.2,115.8 999.4,113.8 999.6,114.3 999.7,115.6"/>
+<polygon class="capa-robot" fill="#2445E8" fill-opacity=".07" points="0.0,260.0 0.0,260.0 0.0,259.3 9.8,258.9 41.3,257.7 83.0,257.1 95.6,257.0 101.6,256.2 114.6,255.3 124.1,255.1 136.9,254.2 159.3,253.8 172.2,252.5 183.1,251.5 189.7,249.8 216.0,248.9 222.0,247.7 234.2,247.0 237.2,245.0 246.0,243.1 251.3,240.9 259.6,241.1 278.7,240.0 288.1,237.7 303.9,236.4 312.7,235.2 323.4,234.6 339.2,234.1 343.5,233.1 365.3,232.0 368.3,230.8 398.5,228.1 410.2,227.6 459.0,224.8 489.5,221.9 503.7,221.8 539.6,236.0 540.2,233.5 586.4,230.9 603.3,228.3 609.3,225.5 622.4,222.5 629.6,219.5 647.2,216.3 649.8,213.0 669.6,209.6 671.8,205.9 675.6,202.2 675.8,198.3 676.1,194.2 678.4,189.9 678.6,185.4 686.5,180.8 690.2,203.1 697.0,199.2 717.8,195.2 735.5,192.2 746.0,189.2 747.7,184.7 778.5,180.0 787.5,177.7 791.5,172.7 825.3,168.8 842.0,163.4 844.6,157.8 850.4,152.0 861.1,147.1 869.6,140.8 889.9,134.2 937.8,127.3 944.2,120.1 953.0,112.6 954.3,104.8 955.6,96.6 956.9,88.1 987.9,79.2 987.9,260.0"/>
+<polyline class="capa-robot" fill="none" stroke="#2445E8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="0.0,260.0 0.0,259.3 9.8,258.9 41.3,257.7 83.0,257.1 95.6,257.0 101.6,256.2 114.6,255.3 124.1,255.1 136.9,254.2 159.3,253.8 172.2,252.5 183.1,251.5 189.7,249.8 216.0,248.9 222.0,247.7 234.2,247.0 237.2,245.0 246.0,243.1 251.3,240.9 259.6,241.1 278.7,240.0 288.1,237.7 303.9,236.4 312.7,235.2 323.4,234.6 339.2,234.1 343.5,233.1 365.3,232.0 368.3,230.8 398.5,228.1 410.2,227.6 459.0,224.8 489.5,221.9 503.7,221.8 539.6,236.0 540.2,233.5 586.4,230.9 603.3,228.3 609.3,225.5 622.4,222.5 629.6,219.5 647.2,216.3 649.8,213.0 669.6,209.6 671.8,205.9 675.6,202.2 675.8,198.3 676.1,194.2 678.4,189.9 678.6,185.4 686.5,180.8 690.2,203.1 697.0,199.2 717.8,195.2 735.5,192.2 746.0,189.2 747.7,184.7 778.5,180.0 787.5,177.7 791.5,172.7 825.3,168.8 842.0,163.4 844.6,157.8 850.4,152.0 861.1,147.1 869.6,140.8 889.9,134.2 937.8,127.3 944.2,120.1 953.0,112.6 954.3,104.8 955.6,96.6 956.9,88.1 987.9,79.2"/>
+<polyline class="capa-robot" fill="none" stroke="#2445E8" stroke-width="2" stroke-dasharray="3 7" stroke-linejoin="round" stroke-linecap="round" points="987.9,79.2 994.7,79.2"/>
+<polyline class="capa-robot" fill="none" stroke="#0B7A50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="994.7,79.2 994.7,79.2 994.9,79.2 995.1,79.2 995.3,79.2 995.5,79.2 995.7,79.2 995.9,79.2 996.1,79.2 996.2,79.2 996.4,79.2 996.6,79.2 996.8,79.2 997.0,79.2 997.2,79.2 997.4,79.2 997.6,79.2 997.7,70.0 997.9,70.0 998.1,60.3 998.3,60.3 998.5,60.3 998.7,60.3 998.9,60.3 999.1,60.3 999.2,60.3 999.4,60.3 999.6,60.3 999.8,60.3 1000.0,60.3"/>
     </svg>
     <div class="eje-x" aria-hidden="true"><span>2012</span><span>2015</span><span>2019</span><span>2023</span><span>2026</span></div>
   </div>
-</div>
-    <p class="nota">Su capital operación a operación, a riesgo igual: medido al tamaño con el que su peor caída en el backtest fue del 20 %, como todos los del tablero. Un backtest es el pasado, hecho a la medida; por eso después viene la cuarentena.</p>
+</div></div>
+    <div data-vista-de="real" hidden><div class="grafico">
+  <div class="eje-y" aria-hidden="true"><span>+10 %</span><span>+5 %</span><span>0 %</span><span>−5 %</span></div>
+  <div class="grafico-dibujo">
+    <svg viewBox="0 0 1000 260" preserveAspectRatio="none" overflow="visible" role="img" aria-label="En cuarentena desde el 16 oct 2026: el robot, a riesgo igual, +8,9 %; su mercado, S&amp;P 500, −1,5 %">
+<line x1="0" y1="0.0" x2="1000" y2="0.0" stroke="#E6EAF0" stroke-width="1"/>
+<line x1="0" y1="86.7" x2="1000" y2="86.7" stroke="#E6EAF0" stroke-width="1"/>
+<line x1="0" y1="173.3" x2="1000" y2="173.3" stroke="#B9C3CF" stroke-width="1.2"/>
+<line x1="0" y1="260.0" x2="1000" y2="260.0" stroke="#E6EAF0" stroke-width="1"/>
+<polyline class="capa-mercado" fill="none" stroke="#98A3B3" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" points="0.0,173.3 72.7,164.5 107.9,153.6 143.1,150.3 178.3,171.8 213.5,178.5 319.2,168.5 354.4,158.6 389.6,157.4 424.8,168.8 460.0,190.8 565.7,196.2 600.9,191.4 636.1,162.1 671.3,248.6 706.5,236.4 812.2,196.0 847.4,201.8 882.6,181.8 917.8,186.5 953.0,199.3"/>
+<polyline class="capa-robot" fill="none" stroke="#0B7A50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="0.0,173.3 14.0,173.3 49.2,173.3 84.4,173.3 119.6,173.3 154.8,173.3 190.0,173.3 225.3,173.3 260.5,173.3 295.7,173.3 330.9,173.3 366.1,173.3 401.3,173.3 436.6,173.3 471.8,173.3 507.0,173.3 542.2,173.3 577.4,97.9 612.6,97.9 647.8,19.3 683.1,19.3 718.3,19.3 753.5,19.3 788.7,19.3 823.9,19.3 859.1,19.3 894.4,19.3 929.6,19.3 964.8,19.3 1000.0,19.3"/>
+    </svg>
+    <div class="eje-x" aria-hidden="true"><span>16 oct</span><span>24 oct</span><span>31 oct</span><span>7 nov</span><span>14 nov</span></div>
+  </div>
+</div></div>
+  </div>
+    <p class="nota">Su capital operación a operación, a riesgo igual: medido al tamaño con el que su peor caída en el backtest fue del 20 %, como todos los del tablero. Un backtest es el pasado, hecho a la medida; por eso después viene la cuarentena. En los mismos años su mercado, S&amp;P 500, comprado y sin tocar, hizo +453 % y llegó a caer un 35 %: la línea gris, tal cual, sin ningún tamaño. Tras la raya discontinua, lo real: el robot en cuarentena, en verde, y su mercado desde entonces.</p>
   </section>
 
   <div class="dos-columnas">
