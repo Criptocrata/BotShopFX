@@ -137,8 +137,11 @@ img, svg { max-width: 100%; }
 .tabla a.robot[aria-expanded]:hover { color: var(--cobalto); }
 .tabla tr[data-abierta="si"], .tabla tbody tr.desplegado:hover { background: #F5F7FF; }
 .tabla .desplegado td { white-space: normal; padding: 0 0 4px; background: #F5F7FF; }
-/* La tabla es ancha y en un móvil se desliza de lado: el desplegable se queda quieto, del ancho de la pantalla. */
-.desplegable { position: sticky; left: 0; box-sizing: border-box; width: min(100%, calc(100vw - 34px)); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 4px 16px 18px; }
+/* Si la tabla no cabe (en un móvil) se desliza de lado: el desplegable se queda quieto, del ancho de SU CAJA (100cqi,
+   la caja-tabla es el contenedor), no del de la pantalla. 14-11-2026: con «100vw - 34px» cuadraba en el móvil, pero en
+   un escritorio la caja se queda en 1.176 px y el desplegable salía más ancho y cortado por la derecha. La primera
+   línea es para los navegadores sin unidades de contenedor. */
+.desplegable { position: sticky; left: 0; box-sizing: border-box; width: min(100%, calc(100vw - 34px)); width: min(100%, 100cqi); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 4px 16px 18px; }
 @media (max-width: 900px) { .desplegable { grid-template-columns: minmax(0, 1fr); } .metricas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .mitad { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 20px 22px; }
 .mitad h3 { margin: 0 0 6px; font-size: 17px; font-weight: 800; }
@@ -149,11 +152,17 @@ img, svg { max-width: 100%; }
 .desplegable-pie { grid-column: 1 / -1; margin: 0; font-size: 13.5px; color: var(--suave); }
 .desplegable-pie a { font-weight: 800; }
 .tabla .sin-resultados td { white-space: normal; }
-.caja-tabla { margin-top: 32px; position: relative; overflow-x: auto; border: 1px solid var(--borde); border-radius: 16px; }
+.caja-tabla { margin-top: 32px; position: relative; overflow-x: auto; border: 1px solid var(--borde); border-radius: 16px; container-type: inline-size; }
 .tabla { border-collapse: collapse; width: 100%; font-size: 15px; }
-.tabla-ancha { min-width: 1060px; }
 .tabla th, .tabla td { padding: 14px 16px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--raya); }
 .tabla th { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--suave); background: var(--nube); }
+/* El tablero y la página de cada autor: 11 columnas. 14-11-2026, el dueño: «Fíjate en el lado derecho de la tabla, queda
+   cortado». Sin partir nada medía 1.460 px y su caja, como mucho, 1.176: «Estado» y «Abrir» quedaban fuera en cualquier
+   escritorio. Ahora las cabeceras van en dos líneas y la descripción del robot se parte: entra entera desde una
+   pantalla de unos 1.060 px. Más estrecha, se desliza de lado como antes. */
+.tabla-ancha th, .tabla-ancha td { padding-left: 12px; padding-right: 12px; }
+.tabla-ancha th { white-space: normal; vertical-align: bottom; }
+.tabla-ancha tbody td:first-child { white-space: normal; min-width: 190px; }
 .tabla .n { text-align: right; font-variant-numeric: tabular-nums; }
 .tabla tbody tr:hover { background: #F5F7FF; }
 .tabla .fuerte { font-weight: 800; }
