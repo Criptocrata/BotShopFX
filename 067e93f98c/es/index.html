@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
-<link rel="stylesheet" href="/067e93f98c/assets/estilo.css?v=d208181ad6">
-<script src="/067e93f98c/assets/cliente.js?v=d208181ad6" defer></script>
+<link rel="stylesheet" href="/067e93f98c/assets/estilo.css?v=0171cc2d79">
+<script src="/067e93f98c/assets/cliente.js?v=0171cc2d79" defer></script>
 </head>
 <body data-cobro="https://cobro.botshopfx.com" data-venta="cerrada">
 <div class="aviso">Vista previa · BotShopFX aún no ha abierto. Son los robots de verdad de la cuarentena de nuestra fábrica; no se vende nada.</div>
@@ -87,15 +87,31 @@
       <div>
         <h2 class="rotulo">El tablero</h2>
         <p class="fecha-tablero">sábado 14 nov 2026 · nuevo precio cada día a las 09:00, hora de Madrid</p>
+        <p class="pista">Pulsa el nombre de un robot para ver su backtest y su cuarentena, con sus gráficos.</p>
       </div>
-      <div class="filtros" role="group" aria-label="Filtrar robots"><button type="button" data-filtro="todos" aria-pressed="true">Todos · 30</button><button type="button" data-filtro="nuevo" aria-pressed="false">Nuevo · 30</button></div>
     </div>
+    <div class="buscador">
+      <label class="campo-buscar">Buscar<input type="search" data-buscar placeholder="Nombre, estrategia o mercado" autocomplete="off"></label>
+      <label class="campo-orden">Ordenar por<select data-orden>
+        <option value="pos">Estado y precio</option>
+        <option value="precio">Precio de hoy</option>
+        <option value="record">Desde la salida</option>
+        <option value="dias">Días con récord</option>
+        <option value="juez">Nota del juez</option>
+        <option value="pf">Factor de beneficio del backtest</option>
+        <option value="anual">Crecimiento al año del backtest</option>
+        <option value="nombre">Nombre, de la A a la Z</option>
+      </select></label>
+      <p class="cuantos" data-cuantos aria-live="polite">30 robots</p>
+      <button type="button" class="quitar" data-quitar hidden>Quitar filtros</button>
+    </div>
+    <div class="filtros"><div class="filtro-grupo" role="group" aria-label="Estado"><span class="filtro-titulo">Estado</span><button type="button" data-grupo="estado" data-filtro="todos" aria-pressed="true">Todos · <span class="cuenta">30</span></button><button type="button" data-grupo="estado" data-filtro="nuevo" aria-pressed="false">Nuevo · <span class="cuenta">30</span></button></div><div class="filtro-grupo" role="group" aria-label="Activo"><span class="filtro-titulo">Activo</span><button type="button" data-grupo="clase" data-filtro="todos" aria-pressed="true">Todos · <span class="cuenta">30</span></button><button type="button" data-grupo="clase" data-filtro="indices" aria-pressed="false">Índices · <span class="cuenta">16</span></button><button type="button" data-grupo="clase" data-filtro="etf" aria-pressed="false">ETF · <span class="cuenta">5</span></button><button type="button" data-grupo="clase" data-filtro="acciones" aria-pressed="false">Acciones · <span class="cuenta">2</span></button><button type="button" data-grupo="clase" data-filtro="divisas" aria-pressed="false">Divisas · <span class="cuenta">5</span></button><button type="button" data-grupo="clase" data-filtro="metales" aria-pressed="false">Metales · <span class="cuenta">1</span></button><button type="button" data-grupo="clase" data-filtro="cripto" aria-pressed="false">Cripto · <span class="cuenta">1</span></button></div><div class="filtro-grupo" role="group" aria-label="Velas"><span class="filtro-titulo">Velas</span><button type="button" data-grupo="velas" data-filtro="todos" aria-pressed="true">Todos · <span class="cuenta">30</span></button><button type="button" data-grupo="velas" data-filtro="D1" aria-pressed="false">Diarias (D1) · <span class="cuenta">20</span></button><button type="button" data-grupo="velas" data-filtro="H4" aria-pressed="false">De 4 horas (H4) · <span class="cuenta">9</span></button><button type="button" data-grupo="velas" data-filtro="H1" aria-pressed="false">De 1 hora (H1) · <span class="cuenta">1</span></button></div><div class="filtro-grupo" role="group" aria-label="Horario de su mercado"><span class="filtro-titulo">Horario de su mercado</span><button type="button" data-grupo="horario" data-filtro="todos" aria-pressed="true">Todos · <span class="cuenta">30</span></button><button type="button" data-grupo="horario" data-filtro="europa" aria-pressed="false">Bolsa europea · <span class="cuenta">9</span></button><button type="button" data-grupo="horario" data-filtro="eeuu" aria-pressed="false">Bolsa de EE. UU. · <span class="cuenta">14</span></button><button type="button" data-grupo="horario" data-filtro="24-5" aria-pressed="false">24 h entre semana · <span class="cuenta">6</span></button><button type="button" data-grupo="horario" data-filtro="24-7" aria-pressed="false">24/7 · <span class="cuenta">1</span></button></div><div class="filtro-grupo" role="group" aria-label="Lo halló"><span class="filtro-titulo">Lo halló</span><button type="button" data-grupo="origen" data-filtro="todos" aria-pressed="true">Todos · <span class="cuenta">30</span></button><button type="button" data-grupo="origen" data-filtro="bfx" aria-pressed="false">BotFactoryFX · <span class="cuenta">28</span></button><button type="button" data-grupo="origen" data-filtro="sqx" aria-pressed="false">StrategyQuant X · <span class="cuenta">2</span></button></div></div>
     <div class="caja-tabla">
-      <table class="tabla tabla-ancha">
+      <table class="tabla tabla-ancha" data-tablero>
         <thead><tr><th scope="col">Robot</th><th scope="col">Salida</th><th scope="col" class="n">Días</th><th scope="col" class="n">Precio de salida</th><th scope="col" class="n">Precio hoy</th><th scope="col" class="n">Desde la salida</th><th scope="col" class="n">Operaciones</th><th scope="col" class="n">Ganadas</th><th scope="col" class="n">Peor caída</th><th scope="col">Estado</th><th scope="col"><span class="oculto">Abrir</span></th></tr></thead>
         <tbody>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-dip-buy-nasdaq-d1/">Ulises</a><br><span class="tecnico">Bollinger dip-buy · Nasdaq D1</span><br><span class="quien">Nasdaq 100 · velas diarias</span></td>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="0" data-precio="105" data-record="0.050000000000000044" data-dias="28" data-juez="81" data-pf="3.2841318717411823" data-anual="0.1208" data-nombre="ulises" data-buscar="ulises bollinger dip-buy · nasdaq d1 nasdaq 100 · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-dip-buy-nasdaq-d1/" data-despliega="d-bollinger-dip-buy-nasdaq-d1">Ulises</a><br><span class="tecnico">Bollinger dip-buy · Nasdaq D1</span><br><span class="quien">Nasdaq 100 · velas diarias</span></td>
   <td>17 oct 2026</td>
   <td class="n">28 d</td>
   <td class="n">100 $</td>
@@ -107,8 +123,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-dip-buy-nasdaq-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-stochastic-sp-500-d1/">Cástor</a><br><span class="tecnico">Bollinger + Stochastic · S&amp;P 500 D1</span><br><span class="quien">S&amp;P 500 · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-dip-buy-nasdaq-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2012–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +402 % en total, 77 operaciones">
+<line x1="0" y1="79.9" x2="300" y2="79.9" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.9 0.0,80.0 12.1,79.8 21.1,79.7 21.7,79.6 22.5,79.4 28.4,79.3 35.4,79.1 38.5,79.0 39.6,78.8 48.2,78.7 49.5,78.6 50.2,78.3 53.6,78.1 55.6,77.8 58.8,77.7 64.2,77.4 69.1,77.5 70.3,77.0 74.7,76.7 77.4,77.2 78.4,76.7 83.2,76.7 86.1,76.3 90.6,75.9 93.7,75.8 110.0,75.5 110.4,75.2 120.6,74.6 123.9,74.5 128.9,74.1 136.1,73.5 137.3,72.7 139.5,72.5 148.4,72.7 152.3,72.7 155.3,72.5 164.6,75.9 164.7,74.2 165.4,72.3 178.4,70.6 185.8,70.9 197.2,69.9 198.4,69.0 201.5,66.8 204.7,65.4 206.3,63.9 207.2,61.2 210.0,66.2 211.4,64.5 213.0,61.9 217.5,61.5 219.0,61.0 224.6,61.4 227.7,60.0 237.7,57.5 240.3,57.1 241.8,55.0 252.1,54.9 257.7,52.7 260.1,49.2 263.3,47.5 270.6,54.4 271.4,51.0 272.0,57.4 272.2,54.2 272.3,50.7 285.4,47.0 285.6,43.0 287.0,38.8 289.0,35.3 289.9,30.3 291.8,24.9 292.5,19.1 293.0,12.8 297.2,6.0 299.9,18.7 300.0,12.4"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>77 en 14,1 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,45</dd></div>
+      <div><dt>Ganadas</dt><dd>84,4 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>3,28</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,26 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+12,1 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>81 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 17 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 105 $">
+<line x1="0" y1="62.0" x2="300" y2="62.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,62.0 10.3,62.0 20.7,62.0 31.0,62.0 41.4,62.0 51.7,62.0 62.1,62.0 72.4,62.0 82.8,62.0 93.1,62.0 103.4,62.0 113.8,54.0 124.1,54.0 134.5,54.0 144.8,54.0 155.2,54.0 165.5,54.0 175.9,54.0 186.2,46.0 196.6,46.0 206.9,46.0 217.2,46.0 227.6,46.0 237.9,46.0 248.3,30.0 258.6,22.0 269.0,22.0 279.3,22.0 289.7,22.0 300.0,22.0"/>
+<circle cx="297" cy="22.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>28 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +16,9 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>2</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+8,11 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-dip-buy-nasdaq-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="1" data-precio="103" data-record="0.030000000000000027" data-dias="28" data-juez="76" data-pf="5.889485900350769" data-anual="0.1396" data-nombre="castor" data-buscar="castor bollinger + stochastic · s&amp;p 500 d1 s&amp;p 500 · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-stochastic-sp-500-d1/" data-despliega="d-bollinger-stochastic-sp-500-d1">Cástor</a><br><span class="tecnico">Bollinger + Stochastic · S&amp;P 500 D1</span><br><span class="quien">S&amp;P 500 · velas diarias</span></td>
   <td>17 oct 2026</td>
   <td class="n">28 d</td>
   <td class="n">100 $</td>
@@ -120,8 +176,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-stochastic-sp-500-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-cci-sp-500-d1/">Penélope</a><br><span class="tecnico">Bollinger + CCI · S&amp;P 500 D1</span><br><span class="quien">S&amp;P 500 · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-stochastic-sp-500-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2012–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +556 % en total, 74 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.7 3.0,79.6 12.5,79.0 25.2,78.8 29.0,78.8 30.9,78.4 34.8,78.1 37.7,78.0 41.6,77.6 48.4,77.4 52.3,76.9 55.6,76.5 57.6,75.8 65.6,75.5 67.4,75.0 71.1,74.7 72.0,73.9 74.7,73.1 76.3,72.2 78.8,72.3 84.6,71.8 87.5,70.9 92.3,70.4 95.0,69.9 98.2,69.6 103.0,69.4 104.3,69.0 110.9,68.6 111.8,68.1 121.0,67.0 124.6,66.7 139.4,65.6 148.6,64.4 153.0,64.4 163.9,70.2 164.0,69.2 178.1,68.1 183.2,67.0 185.0,65.9 189.0,64.7 191.2,63.4 196.5,62.1 197.3,60.8 203.3,59.3 204.0,57.9 205.2,56.3 205.2,54.7 205.3,53.0 206.0,51.3 206.1,49.5 208.5,47.6 209.6,56.7 211.7,55.1 218.0,53.5 223.3,52.2 226.5,51.0 227.1,49.2 236.4,47.3 239.1,46.3 240.3,44.3 250.6,42.7 255.7,40.5 256.5,38.2 258.3,35.8 261.5,33.8 264.1,31.2 270.2,28.5 284.8,25.7 286.7,22.7 289.4,19.7 289.8,16.5 290.2,13.1 290.6,9.6 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>74 en 14,4 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,43</dd></div>
+      <div><dt>Ganadas</dt><dd>95,9 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>5,89</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,67 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+14,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>76 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 17 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 103 $">
+<line x1="0" y1="57.4" x2="300" y2="57.4" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,57.4 10.3,57.4 20.7,57.4 31.0,57.4 41.4,57.4 51.7,57.4 62.1,57.4 72.4,57.4 82.8,57.4 93.1,57.4 103.4,57.4 113.8,57.4 124.1,57.4 134.5,57.4 144.8,57.4 155.2,57.4 165.5,57.4 175.9,47.1 186.2,47.1 196.6,36.9 206.9,36.9 217.2,36.9 227.6,36.9 237.9,36.9 248.3,36.9 258.6,36.9 269.0,26.6 279.3,26.6 289.7,26.6 300.0,26.6"/>
+<circle cx="297" cy="26.6" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>28 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +8,9 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>2</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+4,35 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-stochastic-sp-500-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="2" data-precio="103" data-record="0.030000000000000027" data-dias="26" data-juez="88" data-pf="5.078572682657656" data-anual="0.1156" data-nombre="penelope" data-buscar="penelope bollinger + cci · s&amp;p 500 d1 s&amp;p 500 · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-cci-sp-500-d1/" data-despliega="d-bollinger-cci-sp-500-d1">Penélope</a><br><span class="tecnico">Bollinger + CCI · S&amp;P 500 D1</span><br><span class="quien">S&amp;P 500 · velas diarias</span></td>
   <td>18 oct 2026</td>
   <td class="n">26 d</td>
   <td class="n">100 $</td>
@@ -133,8 +229,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-cci-sp-500-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-stochastic-gdx-d1/">Deméter</a><br><span class="tecnico">Bollinger + Stochastic · GDX D1</span><br><span class="quien">GDX, ETF de mineras de oro · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-cci-sp-500-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2012–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +389 % en total, 73 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.9 2.3,79.5 5.3,79.2 14.8,78.9 16.9,78.7 27.3,78.4 31.1,78.3 32.9,77.9 36.8,77.4 39.7,77.3 43.6,76.8 50.3,76.5 54.2,76.6 57.5,76.1 59.5,75.1 62.5,75.0 69.2,74.5 72.9,74.2 73.8,73.2 76.5,72.2 78.0,71.2 80.5,70.9 86.3,70.4 89.2,69.3 92.6,69.1 93.9,68.5 96.5,67.9 99.8,67.6 104.5,67.5 105.8,67.0 107.5,66.7 112.4,66.2 125.1,64.8 130.8,64.1 137.9,62.9 140.7,61.3 144.9,60.2 149.8,58.8 154.1,59.1 157.0,57.4 165.5,65.7 179.0,64.2 189.9,62.7 192.0,61.3 197.3,59.6 198.1,57.9 201.5,56.1 204.1,54.3 204.8,52.3 206.3,50.3 206.7,48.2 206.8,46.0 210.4,56.6 212.3,54.7 217.2,52.8 227.1,51.6 227.7,49.5 230.2,47.4 236.9,45.1 239.6,44.0 240.8,41.6 251.0,40.1 256.0,37.5 257.0,34.8 258.6,32.1 261.8,30.0 264.3,27.0 270.5,23.8 270.6,20.6 284.9,17.2 290.3,13.6 290.7,9.9 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>73 en 14,5 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,42</dd></div>
+      <div><dt>Ganadas</dt><dd>94,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>5,08</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,29 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+11,6 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>88 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 18 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 103 $">
+<line x1="0" y1="57.4" x2="300" y2="57.4" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,57.4 11.1,57.4 22.2,57.4 33.3,57.4 44.4,57.4 55.6,57.4 66.7,57.4 77.8,57.4 88.9,57.4 100.0,57.4 111.1,57.4 122.2,57.4 133.3,57.4 144.4,57.4 155.6,57.4 166.7,57.4 177.8,57.4 188.9,47.1 200.0,47.1 211.1,47.1 222.2,47.1 233.3,47.1 244.4,36.9 255.6,36.9 266.7,36.9 277.8,36.9 288.9,26.6 300.0,26.6"/>
+<circle cx="297" cy="26.6" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>26 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +8,9 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>2</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+4,35 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-cci-sp-500-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="etf" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="3" data-precio="102" data-record="0.020000000000000018" data-dias="14" data-juez="84" data-pf="2.369632567614024" data-anual="0.0952" data-nombre="demeter" data-buscar="demeter bollinger + stochastic · gdx d1 gdx, etf de mineras de oro · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-stochastic-gdx-d1/" data-despliega="d-bollinger-stochastic-gdx-d1">Deméter</a><br><span class="tecnico">Bollinger + Stochastic · GDX D1</span><br><span class="quien">GDX, ETF de mineras de oro · velas diarias</span></td>
   <td>31 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -146,8 +282,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-stochastic-gdx-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/stochastic-dip-eem-d1/">Eumeo</a><br><span class="tecnico">Stochastic dip · EEM D1</span><br><span class="quien">EEM, ETF de mercados emergentes · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-stochastic-gdx-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2017–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2017–2026: +134 % en total, 93 operaciones">
+<line x1="0" y1="79.9" x2="300" y2="79.9" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.9 0.0,80.0 3.8,79.3 13.0,79.4 13.9,79.1 17.1,79.1 19.6,78.4 23.1,78.0 24.5,77.1 27.7,76.9 32.4,76.1 36.3,75.9 43.5,76.6 46.7,75.7 48.6,75.2 53.9,74.5 54.8,73.7 58.5,73.6 60.2,73.4 65.8,74.5 75.7,74.4 78.7,73.6 80.9,72.6 81.8,72.2 83.4,71.6 88.9,70.8 90.3,69.1 91.4,66.5 98.2,66.4 98.9,64.4 104.8,61.7 107.0,60.0 109.5,57.3 110.1,56.1 111.7,53.1 114.1,50.0 119.6,50.0 120.2,50.1 122.9,47.0 124.8,45.9 130.9,44.2 134.0,44.4 135.1,43.1 137.8,43.2 138.0,42.5 141.4,43.7 148.1,43.1 149.8,41.1 150.9,37.4 152.2,36.1 162.2,40.4 166.9,54.1 167.8,52.2 170.9,53.1 172.8,50.0 176.3,46.6 180.6,47.5 187.2,50.7 191.5,51.8 197.0,55.6 197.8,52.5 201.9,54.1 205.7,53.8 208.8,52.7 208.9,53.1 213.1,53.0 215.7,51.0 218.3,50.0 223.5,48.0 226.8,46.0 228.0,45.5 232.7,44.2 235.4,40.7 238.5,37.2 241.4,33.4 245.7,31.0 246.2,30.0 250.7,27.0 253.8,22.7 256.6,31.1 257.3,27.5 261.6,33.1 263.6,30.6 272.6,26.9 280.9,22.6 283.8,37.8 284.5,34.0 288.1,30.1 291.7,17.3 294.8,12.6 294.9,7.8 295.7,6.2 299.9,6.0 300.0,7.9"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>93 en 9,4 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,83</dd></div>
+      <div><dt>Ganadas</dt><dd>76,3 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,37</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,98 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+9,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>84 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 31 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 102 $">
+<line x1="0" y1="54.0" x2="300" y2="54.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,54.0 20.0,54.0 40.0,54.0 60.0,54.0 80.0,54.0 100.0,54.0 120.0,54.0 140.0,54.0 160.0,54.0 180.0,54.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,30.0 280.0,30.0 300.0,30.0"/>
+<circle cx="297" cy="30.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +11,4 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>2</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+5,58 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-stochastic-gdx-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="etf" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="4" data-precio="102" data-record="0.020000000000000018" data-dias="10" data-juez="87" data-pf="5.91836186639812" data-anual="0.2568" data-nombre="eumeo" data-buscar="eumeo stochastic dip · eem d1 eem, etf de mercados emergentes · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/stochastic-dip-eem-d1/" data-despliega="d-stochastic-dip-eem-d1">Eumeo</a><br><span class="tecnico">Stochastic dip · EEM D1</span><br><span class="quien">EEM, ETF de mercados emergentes · velas diarias</span></td>
   <td>3 nov 2026</td>
   <td class="n">10 d</td>
   <td class="n">100 $</td>
@@ -159,8 +335,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/stochastic-dip-eem-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-mid-dip-engulfing-euro-stoxx-50-d1/">Lucano</a><br><span class="tecnico">Bollinger mid dip + engulfing · Euro Stoxx 50 D1</span><br><span class="quien">Euro Stoxx 50 · velas diarias</span></td>
+<tr class="desplegado" id="d-stochastic-dip-eem-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2017–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2017–2026: +761 % en total, 80 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,80.0 10.6,79.6 14.7,79.1 16.8,79.1 18.6,78.7 20.8,79.0 22.8,77.3 26.4,75.8 28.2,75.3 32.7,75.0 35.8,75.4 47.7,74.9 49.0,74.8 50.3,73.9 52.7,74.1 54.1,73.9 58.7,73.8 59.9,73.7 62.0,73.6 67.4,73.6 71.0,73.7 78.5,73.6 82.5,73.4 91.7,74.2 93.6,72.5 97.3,72.6 108.7,72.0 110.1,71.4 113.0,71.1 120.9,70.6 124.2,70.6 125.5,68.6 129.1,67.8 130.1,66.2 132.5,66.4 133.3,65.4 135.1,65.6 136.8,63.7 138.7,62.4 142.5,62.3 145.3,62.0 147.8,61.1 149.2,61.4 152.6,59.3 156.5,54.2 160.6,52.7 161.9,50.2 165.2,48.9 167.4,48.2 170.6,45.7 175.2,44.9 179.0,44.2 181.4,43.3 187.0,49.6 188.7,50.0 194.5,49.1 203.9,49.1 206.1,52.3 208.3,52.5 211.8,52.6 215.7,50.5 223.5,49.2 232.2,49.9 235.9,50.6 240.6,51.0 246.0,50.5 246.8,49.1 251.1,44.8 254.3,41.7 258.9,40.9 260.8,36.9 265.7,34.8 272.9,34.0 274.3,35.3 276.3,33.6 285.2,25.8 289.6,18.4 291.5,10.5 293.1,9.1 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>80 en 9,4 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,71</dd></div>
+      <div><dt>Ganadas</dt><dd>76,3 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>5,92</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,84 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+25,7 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>87 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 3 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 102 $">
+<line x1="0" y1="54.0" x2="300" y2="54.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,54.0 27.3,54.0 54.5,54.0 81.8,54.0 109.1,54.0 136.4,54.0 163.6,42.0 190.9,42.0 218.2,42.0 245.5,42.0 272.7,42.0 300.0,30.0"/>
+<circle cx="297" cy="30.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>10 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +13,1 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>1</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+13,11 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/stochastic-dip-eem-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="europa" data-origen="bfx" data-pos="5" data-precio="101" data-record="0.010000000000000009" data-dias="10" data-juez="88" data-pf="2.2495658488838366" data-anual="0.103" data-nombre="lucano" data-buscar="lucano bollinger mid dip + engulfing · euro stoxx 50 d1 euro stoxx 50 · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-mid-dip-engulfing-euro-stoxx-50-d1/" data-despliega="d-bollinger-mid-dip-engulfing-euro-stoxx-50-d1">Lucano</a><br><span class="tecnico">Bollinger mid dip + engulfing · Euro Stoxx 50 D1</span><br><span class="quien">Euro Stoxx 50 · velas diarias</span></td>
   <td>3 nov 2026</td>
   <td class="n">10 d</td>
   <td class="n">100 $</td>
@@ -172,8 +388,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-mid-dip-engulfing-euro-stoxx-50-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/ichimoku-kijun-rising-btc-d1/">Danubio</a><br><span class="tecnico">Ichimoku Kijun rising · BTC D1</span><br><span class="quien">Bitcoin · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-mid-dip-engulfing-euro-stoxx-50-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2012–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +298 % en total, 197 operaciones">
+<line x1="0" y1="79.4" x2="300" y2="79.4" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.4 0.0,79.4 2.0,79.9 8.5,79.9 9.3,79.8 11.4,80.0 15.8,78.2 16.4,77.4 19.5,76.4 26.1,76.2 29.1,76.2 30.5,75.5 30.5,75.1 31.5,75.5 33.1,75.4 38.8,75.3 40.3,74.7 44.1,74.5 45.3,74.9 47.4,74.9 48.6,74.3 49.5,71.7 54.4,71.9 54.6,71.7 58.2,70.2 59.3,69.2 60.3,68.4 64.4,67.8 67.8,66.6 69.3,67.1 72.2,65.9 72.5,65.4 72.7,65.4 75.5,64.2 77.9,64.0 78.5,63.6 80.7,61.9 82.0,62.1 85.2,63.0 85.6,63.2 86.0,63.2 86.2,63.2 89.0,63.9 100.7,63.9 101.1,64.1 102.0,63.7 104.1,63.1 108.6,60.5 110.1,60.2 115.2,59.4 116.0,59.4 116.4,59.3 120.4,56.8 121.7,55.6 122.9,55.6 125.8,54.7 127.3,54.0 128.1,54.5 129.9,53.3 130.5,54.7 131.4,55.3 141.3,56.0 142.5,55.0 146.9,54.1 149.4,51.7 149.8,51.3 153.1,51.3 158.5,59.1 158.9,55.6 159.6,52.0 160.3,51.2 160.8,52.5 160.9,51.2 162.4,51.5 162.7,49.7 166.6,52.3 168.1,52.6 168.9,51.0 169.2,51.1 169.4,50.3 170.9,50.5 171.5,51.8 171.5,51.8 172.6,55.2 172.9,51.6 177.9,50.6 184.1,50.0 187.2,50.3 187.8,48.4 190.9,48.2 191.4,46.8 191.7,49.6 193.9,46.1 195.9,44.6 196.3,44.2 196.7,44.6 197.8,44.6 199.1,44.3 200.7,53.6 201.6,51.4 202.5,51.6 205.2,51.6 205.7,50.3 206.5,52.3 211.9,51.9 212.1,53.1 213.4,55.4 214.1,54.1 218.7,49.4 219.2,45.4 221.9,45.0 226.5,45.9 227.0,45.4 227.4,44.9 231.4,43.1 232.5,42.7 232.7,43.6 235.0,42.7 235.2,44.7 236.3,46.0 240.0,41.6 246.4,40.7 247.2,39.9 249.3,39.6 250.6,38.6 253.1,41.4 254.8,39.5 255.9,38.2 257.4,37.7 259.4,38.6 265.1,37.1 265.4,36.0 267.8,30.2 271.5,29.8 271.8,29.9 272.1,29.6 273.0,28.4 273.9,29.2 275.9,29.0 280.4,23.3 281.6,22.8 284.5,23.0 287.7,18.2 289.0,20.6 289.7,17.9 294.2,11.7 294.3,11.0 294.7,7.8 298.0,6.0 300.0,7.4"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>197 en 14,1 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,17</dd></div>
+      <div><dt>Ganadas</dt><dd>69,0 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,25</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,75 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+10,3 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>88 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 3 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 101 $">
+<line x1="0" y1="49.2" x2="300" y2="49.2" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,49.2 27.3,49.2 54.5,49.2 81.8,49.2 109.1,49.2 136.4,49.2 163.6,49.2 190.9,49.2 218.2,49.2 245.5,49.2 272.7,34.8 300.0,34.8"/>
+<circle cx="297" cy="34.8" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>10 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +4,9 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>1</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+4,87 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-mid-dip-engulfing-euro-stoxx-50-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="cripto" data-velas="D1" data-horario="24-7" data-origen="bfx" data-pos="6" data-precio="100" data-record="0" data-dias="30" data-juez="" data-pf="4.9598818336163" data-anual="0.6243" data-nombre="danubio" data-buscar="danubio ichimoku kijun rising · btc d1 bitcoin · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/ichimoku-kijun-rising-btc-d1/" data-despliega="d-ichimoku-kijun-rising-btc-d1">Danubio</a><br><span class="tecnico">Ichimoku Kijun rising · BTC D1</span><br><span class="quien">Bitcoin · velas diarias</span></td>
   <td>15 oct 2026</td>
   <td class="n">30 d</td>
   <td class="n">100 $</td>
@@ -185,8 +441,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/ichimoku-kijun-rising-btc-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-stochastic-dow-d1/">Pólux</a><br><span class="tecnico">Bollinger + Stochastic · Dow D1</span><br><span class="quien">Dow Jones · velas diarias</span></td>
+<tr class="desplegado" id="d-ichimoku-kijun-rising-btc-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2017–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2017–2026: +7696 % en total, 119 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,80.0 0.5,80.0 1.6,80.0 1.9,80.0 4.5,79.7 5.6,79.7 6.2,79.7 6.9,79.6 12.6,79.7 13.1,79.6 17.2,79.6 18.3,79.6 19.5,79.7 26.1,79.6 29.4,79.7 41.3,79.7 46.8,79.7 50.6,79.7 53.0,79.7 53.8,79.7 54.1,79.7 54.5,79.6 56.3,79.6 57.6,79.6 58.3,79.6 61.2,79.7 62.4,79.7 70.3,79.7 75.2,79.7 76.6,79.7 76.7,79.7 78.4,79.6 78.5,79.6 82.7,79.7 83.2,79.6 83.6,79.6 86.3,79.6 87.0,79.7 87.5,79.6 88.0,79.6 93.1,79.6 95.1,79.6 95.9,79.6 101.5,79.6 103.7,79.5 105.2,79.4 106.6,78.9 107.5,78.2 107.8,78.0 108.1,77.6 108.6,77.2 109.5,77.4 112.4,77.0 113.1,75.7 113.7,75.5 117.5,75.6 125.4,75.3 128.0,74.9 128.5,75.1 129.2,74.5 133.3,72.3 134.5,71.8 134.7,71.3 134.9,69.9 140.4,68.9 144.1,69.5 145.3,70.2 150.2,71.1 154.8,70.9 159.3,70.0 160.6,69.3 161.1,69.4 172.7,69.2 173.3,69.2 176.4,67.8 177.2,67.8 177.8,68.1 181.1,67.9 184.2,67.0 192.3,67.2 202.7,67.4 204.1,66.9 206.4,67.2 207.2,65.3 207.3,64.7 212.1,64.1 213.1,58.4 215.5,58.3 220.7,58.0 221.3,57.5 221.6,56.5 223.7,61.4 229.6,59.8 230.2,60.1 232.5,57.9 233.1,57.1 237.9,56.5 238.1,52.6 238.3,43.2 239.4,45.6 244.3,42.1 252.1,36.4 258.8,34.2 259.1,28.0 260.3,37.0 266.2,37.7 272.8,30.8 276.4,29.2 281.0,28.3 282.2,20.3 285.0,17.5 286.2,15.5 293.2,11.4 293.6,7.4 294.2,8.5 295.9,7.9 297.4,6.0 297.5,9.9 300.0,13.1"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>119 en 9,0 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,10</dd></div>
+      <div><dt>Ganadas</dt><dd>69,7 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>4,96</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+4,12 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+62,4 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 15 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 10.0,42.0 20.0,42.0 30.0,42.0 40.0,42.0 50.0,42.0 60.0,42.0 70.0,42.0 80.0,42.0 90.0,42.0 100.0,42.0 110.0,42.0 120.0,42.0 130.0,42.0 140.0,42.0 150.0,42.0 160.0,42.0 170.0,42.0 180.0,42.0 190.0,42.0 200.0,42.0 210.0,42.0 220.0,42.0 230.0,42.0 240.0,42.0 250.0,42.0 260.0,42.0 270.0,42.0 280.0,42.0 290.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>30 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/ichimoku-kijun-rising-btc-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="7" data-precio="100" data-record="0" data-dias="28" data-juez="81" data-pf="4.136737971443868" data-anual="0.0951" data-nombre="polux" data-buscar="polux bollinger + stochastic · dow d1 dow jones · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-stochastic-dow-d1/" data-despliega="d-bollinger-stochastic-dow-d1">Pólux</a><br><span class="tecnico">Bollinger + Stochastic · Dow D1</span><br><span class="quien">Dow Jones · velas diarias</span></td>
   <td>17 oct 2026</td>
   <td class="n">28 d</td>
   <td class="n">100 $</td>
@@ -198,8 +494,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-stochastic-dow-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-dip-buy-dow-d1/">Perséfone</a><br><span class="tecnico">Bollinger dip-buy · Dow D1</span><br><span class="quien">Dow Jones · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-stochastic-dow-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +220 % en total, 61 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.1 3.5,79.0 7.6,78.4 15.5,78.1 19.8,77.6 23.4,77.1 25.7,76.0 34.6,75.3 36.7,74.4 40.8,74.1 44.9,72.9 46.7,71.7 49.5,71.9 59.3,70.5 64.7,69.7 67.7,68.9 76.8,68.8 78.4,67.9 86.1,67.3 97.0,65.4 100.0,63.5 118.3,61.9 128.0,59.8 133.4,60.2 136.1,58.0 145.1,68.5 145.3,66.6 161.1,65.7 166.9,63.7 176.0,62.5 177.7,60.8 181.9,60.2 182.8,58.0 185.8,57.2 190.3,55.9 193.0,55.5 196.2,54.6 199.4,52.2 206.0,49.6 212.0,47.0 215.6,45.7 217.3,43.6 219.6,41.8 221.4,38.8 227.1,38.5 229.8,39.1 231.1,36.0 242.3,33.4 244.8,30.1 249.5,28.7 251.3,25.1 255.0,21.4 259.5,23.8 263.8,29.6 264.7,26.1 272.4,22.4 285.8,18.6 286.3,14.5 287.6,10.4 297.7,6.0 300.0,13.5"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>61 en 12,8 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,40</dd></div>
+      <div><dt>Ganadas</dt><dd>88,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>4,14</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,00 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+9,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>81 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 17 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 10.3,42.0 20.7,42.0 31.0,42.0 41.4,42.0 51.7,42.0 62.1,42.0 72.4,42.0 82.8,42.0 93.1,42.0 103.4,42.0 113.8,42.0 124.1,42.0 134.5,42.0 144.8,42.0 155.2,42.0 165.5,42.0 175.9,42.0 186.2,42.0 196.6,42.0 206.9,42.0 217.2,42.0 227.6,42.0 237.9,42.0 248.3,42.0 258.6,42.0 269.0,42.0 279.3,42.0 289.7,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>28 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-stochastic-dow-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="8" data-precio="100" data-record="0" data-dias="26" data-juez="79" data-pf="8.97722817071331" data-anual="0.4567" data-nombre="persefone" data-buscar="persefone bollinger dip-buy · dow d1 dow jones · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-dip-buy-dow-d1/" data-despliega="d-bollinger-dip-buy-dow-d1">Perséfone</a><br><span class="tecnico">Bollinger dip-buy · Dow D1</span><br><span class="quien">Dow Jones · velas diarias</span></td>
   <td>18 oct 2026</td>
   <td class="n">26 d</td>
   <td class="n">100 $</td>
@@ -211,8 +547,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-dip-buy-dow-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/ichimoku-breakout-dax-d1/">Zugspitze</a><br><span class="tecnico">Ichimoku breakout · DAX D1</span><br><span class="quien">DAX · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-dip-buy-dow-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +12255 % en total, 80 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,80.0 1.9,80.0 5.8,80.0 7.7,80.0 15.3,80.0 18.7,79.9 19.7,80.0 23.5,79.9 24.9,79.8 26.6,79.8 29.2,79.8 32.4,79.9 36.4,79.9 39.7,79.8 41.9,79.8 45.0,79.7 49.5,79.8 50.7,79.8 56.2,79.7 59.4,79.7 61.8,79.6 63.3,79.6 64.8,79.6 67.8,79.5 72.8,79.5 78.1,79.5 80.4,79.5 86.3,79.4 97.6,79.2 100.3,79.0 104.6,79.0 113.2,78.8 114.2,78.7 115.9,78.6 117.8,78.3 122.6,78.2 126.8,78.0 128.0,77.7 136.2,77.5 139.9,77.2 143.7,77.3 158.1,77.4 158.9,77.2 167.1,77.1 168.8,76.7 170.1,75.6 176.1,74.6 177.9,74.4 182.0,74.5 186.0,74.3 186.8,74.2 190.4,74.2 192.0,73.8 193.1,73.6 196.3,73.3 201.0,72.3 211.2,71.3 215.8,69.9 216.9,70.0 219.8,68.7 221.3,67.3 227.2,67.4 229.9,69.4 231.3,68.0 242.5,67.6 245.3,65.0 249.7,61.4 251.6,59.2 258.2,63.5 259.6,60.7 262.5,60.0 263.7,56.5 264.9,42.4 272.7,36.3 277.1,31.4 279.8,20.4 295.4,21.3 297.2,20.2 297.9,10.8 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>80 en 12,8 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,52</dd></div>
+      <div><dt>Ganadas</dt><dd>81,3 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>8,98</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+6,64 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+45,7 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>79 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 18 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 11.1,42.0 22.2,42.0 33.3,42.0 44.4,42.0 55.6,42.0 66.7,42.0 77.8,42.0 88.9,42.0 100.0,42.0 111.1,42.0 122.2,42.0 133.3,42.0 144.4,42.0 155.6,42.0 166.7,42.0 177.8,42.0 188.9,42.0 200.0,42.0 211.1,42.0 222.2,42.0 233.3,42.0 244.4,42.0 255.6,42.0 266.7,42.0 277.8,42.0 288.9,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>26 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-dip-buy-dow-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="europa" data-origen="bfx" data-pos="9" data-precio="100" data-record="0" data-dias="26" data-juez="80" data-pf="2.67392389091222" data-anual="0.1424" data-nombre="zugspitze" data-buscar="zugspitze ichimoku breakout · dax d1 dax · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/ichimoku-breakout-dax-d1/" data-despliega="d-ichimoku-breakout-dax-d1">Zugspitze</a><br><span class="tecnico">Ichimoku breakout · DAX D1</span><br><span class="quien">DAX · velas diarias</span></td>
   <td>19 oct 2026</td>
   <td class="n">26 d</td>
   <td class="n">100 $</td>
@@ -224,8 +600,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/ichimoku-breakout-dax-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/rsi-ac-dax-h4/">Perey</a><br><span class="tecnico">RSI + AC · DAX H4</span><br><span class="quien">DAX · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-ichimoku-breakout-dax-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2014–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2014–2026: +423 % en total, 137 operaciones">
+<line x1="0" y1="79.3" x2="300" y2="79.3" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.3 0.0,79.4 3.2,79.3 7.7,80.0 10.0,79.7 12.0,79.3 12.2,79.6 12.3,79.4 15.1,78.5 26.4,79.3 27.9,79.4 29.1,78.7 30.3,79.4 30.7,79.3 31.2,79.5 33.6,79.3 33.8,79.9 34.9,80.0 37.5,78.9 38.8,79.5 40.5,79.2 42.5,79.2 43.8,78.7 44.3,78.9 44.3,78.8 46.7,78.3 47.5,78.0 50.2,77.7 53.4,77.7 56.8,76.5 66.9,76.2 79.9,76.2 79.9,76.5 80.3,76.3 80.9,76.2 81.3,76.1 85.5,74.5 87.9,74.4 88.2,74.7 92.7,74.4 93.3,74.1 93.7,74.6 93.8,74.2 94.1,74.6 94.1,74.5 95.2,74.2 98.4,73.1 101.4,72.7 101.6,73.0 101.7,72.9 103.1,72.9 104.6,72.8 105.0,73.0 106.2,72.5 107.2,72.6 109.1,72.9 109.8,73.3 109.9,73.1 109.9,73.4 110.0,73.4 110.9,73.1 111.3,73.7 113.3,73.6 115.5,73.3 115.9,72.9 116.0,73.2 116.1,72.8 117.7,72.5 117.8,72.4 123.3,72.0 123.5,72.0 125.7,71.5 128.4,70.8 130.7,69.5 131.8,68.3 134.4,67.7 142.8,64.0 145.2,61.2 147.9,58.9 157.6,55.7 159.5,53.3 159.5,53.3 160.3,52.7 180.3,51.3 182.9,49.6 183.9,47.1 184.7,48.6 184.8,48.2 186.6,47.3 188.1,46.0 188.2,47.0 188.5,47.1 189.6,55.8 190.3,53.0 191.7,51.4 192.7,51.6 192.8,53.2 193.6,52.6 194.2,51.8 194.6,52.9 196.0,52.5 198.5,53.3 200.7,51.0 202.1,49.7 202.5,51.1 202.8,51.1 203.7,49.7 203.9,50.9 204.3,50.9 207.0,42.6 225.4,43.1 225.9,43.7 226.3,43.6 226.5,43.7 228.3,43.1 228.5,44.6 229.7,45.5 233.5,37.8 245.7,37.9 246.3,39.4 246.4,38.6 248.7,36.4 250.2,36.5 265.2,32.2 266.6,20.5 275.5,19.0 275.6,19.1 276.9,17.4 277.2,15.6 277.6,15.3 280.0,17.1 280.0,16.1 281.0,15.3 283.2,9.8 287.9,12.9 289.8,6.0 292.1,10.0 300.0,11.7"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>137 en 12,4 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,92</dd></div>
+      <div><dt>Ganadas</dt><dd>63,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,67</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,30 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+14,2 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>80 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 19 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 11.1,42.0 22.2,42.0 33.3,42.0 44.4,42.0 55.6,42.0 66.7,42.0 77.8,42.0 88.9,42.0 100.0,42.0 111.1,42.0 122.2,42.0 133.3,42.0 144.4,42.0 155.6,42.0 166.7,42.0 177.8,42.0 188.9,42.0 200.0,42.0 211.1,42.0 222.2,42.0 233.3,42.0 244.4,42.0 255.6,42.0 266.7,42.0 277.8,42.0 288.9,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>26 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +1,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>1</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,54 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/ichimoku-breakout-dax-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="H4" data-horario="europa" data-origen="bfx" data-pos="10" data-precio="100" data-record="0" data-dias="26" data-juez="82" data-pf="2.2119963189377505" data-anual="0.177" data-nombre="perey" data-buscar="perey rsi + ac · dax h4 dax · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/rsi-ac-dax-h4/" data-despliega="d-rsi-ac-dax-h4">Perey</a><br><span class="tecnico">RSI + AC · DAX H4</span><br><span class="quien">DAX · velas de 4 horas</span></td>
   <td>19 oct 2026</td>
   <td class="n">26 d</td>
   <td class="n">100 $</td>
@@ -237,8 +653,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/rsi-ac-dax-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/macd-cci-cac-h4/">Bassi</a><br><span class="tecnico">MACD + CCI · CAC H4</span><br><span class="quien">CAC 40 · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-rsi-ac-dax-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +718 % en total, 217 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,80.0 2.6,79.8 4.1,79.9 6.3,78.7 6.8,78.6 15.4,78.1 16.1,78.1 19.6,78.0 20.2,77.7 22.7,77.1 23.6,77.0 24.1,76.8 26.0,76.2 27.6,76.2 29.0,75.8 31.1,75.4 35.3,75.8 35.7,75.2 37.9,75.3 39.6,72.8 42.2,72.8 42.6,73.0 43.3,72.9 45.4,72.8 46.4,73.0 48.2,75.2 49.3,74.8 55.2,75.0 58.4,75.7 59.7,75.1 59.8,74.9 62.8,72.8 65.1,72.8 65.9,73.3 67.1,73.5 67.8,73.6 70.3,73.1 73.5,73.2 77.2,73.0 77.6,73.0 78.4,73.5 79.4,73.7 83.3,72.2 83.8,72.4 88.3,72.4 93.0,70.6 94.0,70.7 98.1,69.9 99.5,70.5 100.2,70.5 101.1,70.7 108.0,71.5 109.5,72.0 113.0,71.6 113.5,70.7 115.3,71.5 116.2,70.7 116.8,70.9 121.2,70.7 121.7,70.9 127.8,70.8 129.2,71.0 130.2,70.2 130.7,70.0 136.7,70.5 139.2,70.6 140.3,71.0 140.3,71.2 141.4,71.5 143.7,70.4 144.0,70.3 146.2,68.5 148.7,68.4 149.4,65.2 151.4,64.7 152.5,60.8 154.2,60.1 155.6,58.7 157.2,58.6 158.6,59.8 158.6,60.2 159.2,59.4 161.7,60.2 177.8,60.2 180.0,60.7 182.3,60.9 184.4,61.5 186.0,59.4 188.2,60.5 190.7,60.7 192.2,60.4 192.7,60.9 194.0,58.2 196.2,59.0 198.8,58.8 201.9,57.7 201.9,58.4 204.7,59.2 207.3,56.4 208.5,55.2 210.9,55.3 214.4,52.0 214.5,52.6 216.6,52.8 221.2,53.4 222.4,54.0 226.4,52.3 227.3,53.4 230.2,54.0 231.0,52.0 235.9,44.7 236.6,45.4 239.3,45.3 241.2,43.7 242.8,46.3 245.2,47.2 246.0,47.4 250.4,46.5 253.1,46.2 256.0,47.5 256.2,46.2 256.7,48.3 256.8,49.4 258.0,39.0 259.3,39.5 259.9,36.1 261.4,30.7 263.1,29.2 264.8,33.7 268.2,30.6 269.2,33.0 269.6,34.4 271.0,32.7 271.5,23.6 273.6,24.8 274.2,25.4 280.7,20.8 283.6,21.1 283.8,24.8 284.3,27.3 284.8,27.0 288.0,27.1 290.5,25.2 292.3,20.1 292.4,23.5 295.1,11.7 298.1,6.0 299.9,6.3 300.0,10.1"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>217 en 12,9 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,40</dd></div>
+      <div><dt>Ganadas</dt><dd>46,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,21</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,08 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+17,7 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>82 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 19 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 11.1,42.0 22.2,42.0 33.3,42.0 44.4,42.0 55.6,42.0 66.7,42.0 77.8,42.0 88.9,42.0 100.0,42.0 111.1,42.0 122.2,42.0 133.3,42.0 144.4,42.0 155.6,42.0 166.7,42.0 177.8,42.0 188.9,42.0 200.0,42.0 211.1,42.0 222.2,42.0 233.3,42.0 244.4,42.0 255.6,42.0 266.7,42.0 277.8,42.0 288.9,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>26 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/rsi-ac-dax-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="H4" data-horario="europa" data-origen="bfx" data-pos="11" data-precio="100" data-record="0" data-dias="15" data-juez="89" data-pf="3.58272854753001" data-anual="0.2347" data-nombre="bassi" data-buscar="bassi macd + cci · cac h4 cac 40 · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/macd-cci-cac-h4/" data-despliega="d-macd-cci-cac-h4">Bassi</a><br><span class="tecnico">MACD + CCI · CAC H4</span><br><span class="quien">CAC 40 · velas de 4 horas</span></td>
   <td>29 oct 2026</td>
   <td class="n">15 d</td>
   <td class="n">100 $</td>
@@ -250,8 +706,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/macd-cci-cac-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/macd-cci-cac-h4-atr-stops/">Bassi (stops ATR)</a><br><span class="tecnico">MACD + CCI · CAC H4 ATR stops</span><br><span class="quien">CAC 40 · velas de 4 horas · stops en ATR</span></td>
+<tr class="desplegado" id="d-macd-cci-cac-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +1649 % en total, 99 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.8 6.3,79.7 6.8,79.5 19.2,79.3 22.9,79.1 27.0,78.9 32.0,78.7 32.5,78.5 35.3,79.5 36.1,79.3 39.5,79.2 61.5,79.0 63.2,78.8 63.7,78.5 68.7,78.3 71.2,78.1 77.2,77.8 80.1,77.6 83.0,77.3 83.1,77.0 87.2,76.8 89.9,76.5 91.4,75.8 101.2,75.4 104.4,75.1 106.9,74.7 109.4,74.3 112.9,73.9 116.6,73.5 118.2,73.0 120.7,72.6 124.1,72.1 124.9,71.5 125.0,71.0 126.6,70.5 127.6,69.9 128.8,69.0 129.0,68.3 137.0,67.6 138.5,66.9 142.7,66.2 142.8,65.4 153.0,64.4 154.6,63.6 155.6,67.6 155.6,66.8 155.6,66.0 155.6,64.3 164.0,63.4 165.8,62.5 167.7,61.6 169.1,66.0 175.0,65.2 177.0,64.4 185.5,63.5 187.7,62.6 189.1,61.7 190.3,60.6 194.5,59.5 196.5,64.3 196.7,63.5 202.5,62.6 205.5,61.7 205.7,60.7 210.2,59.7 210.3,58.6 211.8,57.5 217.3,56.3 222.0,55.1 225.1,53.8 227.1,52.5 234.0,51.1 235.6,49.7 239.9,48.2 240.8,46.6 245.9,45.0 245.9,43.2 249.7,41.4 250.4,39.6 250.7,37.6 252.1,35.5 252.6,33.4 255.0,31.2 256.7,28.8 259.9,26.4 265.1,23.8 266.0,21.2 267.5,18.4 271.9,31.4 272.2,29.1 276.6,26.7 280.5,24.1 283.6,21.5 285.5,18.7 287.7,15.8 288.1,12.5 288.5,9.3 288.9,6.0 300.0,21.5"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>99 en 13,6 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,61</dd></div>
+      <div><dt>Ganadas</dt><dd>93,9 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>3,58</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+3,13 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+23,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>89 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 29 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 18.8,42.0 37.5,42.0 56.3,42.0 75.0,42.0 93.8,42.0 112.5,42.0 131.3,42.0 150.0,42.0 168.8,42.0 187.5,42.0 206.3,42.0 225.0,42.0 243.8,42.0 262.5,42.0 281.3,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>15 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/macd-cci-cac-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="H4" data-horario="europa" data-origen="bfx" data-pos="12" data-precio="100" data-record="0" data-dias="15" data-juez="89" data-pf="1.9999604103747444" data-anual="0.0584" data-nombre="bassi (stops atr)" data-buscar="bassi (stops atr) macd + cci · cac h4 atr stops cac 40 · velas de 4 horas · stops en atr">
+  <td><a class="robot" href="/067e93f98c/es/robots/macd-cci-cac-h4-atr-stops/" data-despliega="d-macd-cci-cac-h4-atr-stops">Bassi (stops ATR)</a><br><span class="tecnico">MACD + CCI · CAC H4 ATR stops</span><br><span class="quien">CAC 40 · velas de 4 horas · stops en ATR</span></td>
   <td>30 oct 2026</td>
   <td class="n">15 d</td>
   <td class="n">100 $</td>
@@ -263,8 +759,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/macd-cci-cac-h4-atr-stops/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4/">Vientos del Oeste</a><br><span class="tecnico">Bollinger + Keltner · FTSE H4</span><br><span class="quien">FTSE 100 · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-macd-cci-cac-h4-atr-stops" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +116 % en total, 102 operaciones">
+<line x1="0" y1="74.9" x2="300" y2="74.9" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,74.9 0.0,74.6 6.5,74.1 7.0,73.6 15.8,73.2 17.7,72.8 23.1,72.3 26.2,71.9 32.1,71.4 32.5,71.0 35.1,73.1 35.7,75.6 35.8,74.9 35.9,78.0 36.2,76.9 39.7,76.0 61.7,75.2 63.8,80.0 63.9,78.9 68.7,78.3 71.3,77.7 77.0,77.4 77.3,76.9 80.2,76.4 82.8,75.9 83.2,75.3 86.8,74.9 87.1,74.5 90.0,74.1 91.6,72.1 94.7,71.6 95.0,71.0 96.4,70.5 98.0,69.9 104.4,69.4 105.4,68.7 109.6,67.6 111.7,69.7 116.6,69.2 118.0,68.8 120.8,68.1 124.2,67.3 125.0,66.2 125.2,65.2 126.7,64.6 127.7,63.7 128.9,62.0 129.1,60.8 137.1,59.8 138.0,62.8 142.8,61.5 142.9,60.4 153.1,59.5 154.8,56.8 156.0,50.8 164.1,49.2 165.9,47.6 167.8,46.2 168.7,45.1 175.0,43.7 177.1,42.6 185.6,41.1 187.8,40.2 189.1,38.1 190.4,36.2 194.6,34.7 196.4,39.7 198.8,52.7 202.6,50.4 205.5,48.5 205.7,46.5 210.4,44.7 211.8,42.4 217.3,41.6 222.1,39.1 225.2,37.8 227.2,36.2 234.1,34.8 235.6,33.1 239.9,31.5 240.8,30.5 246.1,28.3 249.7,26.2 250.5,24.0 252.3,35.5 252.7,32.8 255.1,30.9 256.7,29.5 259.3,36.2 259.5,35.0 265.1,33.4 266.0,31.5 268.2,24.2 271.2,22.9 272.2,21.0 276.6,19.6 280.4,18.0 282.5,16.8 285.5,14.9 289.4,6.0 299.1,13.9 299.2,12.1 300.0,17.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>102 en 13,6 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,63</dd></div>
+      <div><dt>Ganadas</dt><dd>88,2 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,00</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,82 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+5,8 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>89 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 30 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 18.8,42.0 37.5,42.0 56.3,42.0 75.0,42.0 93.8,42.0 112.5,42.0 131.3,42.0 150.0,42.0 168.8,42.0 187.5,42.0 206.3,42.0 225.0,42.0 243.8,42.0 262.5,42.0 281.3,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>15 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/macd-cci-cac-h4-atr-stops/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="H4" data-horario="europa" data-origen="bfx" data-pos="13" data-precio="100" data-record="0" data-dias="14" data-juez="85" data-pf="2.4757246847783705" data-anual="0.207" data-nombre="vientos del oeste" data-buscar="vientos del oeste bollinger + keltner · ftse h4 ftse 100 · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4/" data-despliega="d-bollinger-keltner-ftse-h4">Vientos del Oeste</a><br><span class="tecnico">Bollinger + Keltner · FTSE H4</span><br><span class="quien">FTSE 100 · velas de 4 horas</span></td>
   <td>30 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -276,8 +812,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4-atr-stops/">Vientos del Oeste (stops ATR)</a><br><span class="tecnico">Bollinger + Keltner · FTSE H4 ATR stops</span><br><span class="quien">FTSE 100 · velas de 4 horas · stops en ATR</span></td>
+<tr class="desplegado" id="d-bollinger-keltner-ftse-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +1068 % en total, 88 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.5 0.6,79.1 7.5,78.5 10.6,78.0 13.5,77.4 22.4,76.8 25.9,77.7 26.3,78.5 30.2,78.0 41.6,78.8 42.0,78.3 43.1,77.6 45.8,78.5 46.9,77.9 53.0,78.8 55.7,78.2 62.7,77.7 63.2,77.0 73.8,76.4 74.7,75.7 79.6,74.9 83.9,76.0 85.2,75.3 90.9,74.6 102.7,73.7 104.9,74.9 106.0,74.2 110.4,73.3 115.6,74.6 116.6,73.7 118.6,72.9 119.1,72.0 121.2,71.0 122.7,69.7 122.7,71.3 127.8,70.3 131.7,69.2 138.4,68.0 140.8,66.8 141.6,65.4 144.8,64.0 148.2,62.5 149.8,60.9 150.1,63.3 150.4,65.4 150.8,64.0 151.1,62.5 158.3,60.9 159.5,59.2 160.0,57.4 161.5,60.1 163.4,58.3 165.0,60.9 165.2,59.2 171.1,57.4 178.5,55.5 189.7,58.3 190.0,56.5 195.3,59.2 195.6,57.4 199.6,55.5 202.9,53.4 207.7,51.2 209.2,54.5 209.2,52.3 214.9,49.2 219.2,52.6 219.8,50.3 220.3,47.9 223.9,51.5 225.3,49.2 229.6,46.7 232.6,44.1 234.1,41.2 251.0,38.2 260.1,42.7 260.8,39.8 267.0,36.7 267.0,33.4 267.4,29.9 272.7,26.1 288.5,22.1 288.6,28.0 289.3,24.2 291.6,20.1 292.1,15.7 298.4,11.0 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>88 en 13,1 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,56</dd></div>
+      <div><dt>Ganadas</dt><dd>77,3 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,48</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+3,06 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+20,7 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>85 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 30 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="H4" data-horario="europa" data-origen="bfx" data-pos="14" data-precio="100" data-record="0" data-dias="14" data-juez="85" data-pf="1.9616181404468975" data-anual="0.0497" data-nombre="vientos del oeste (stops atr)" data-buscar="vientos del oeste (stops atr) bollinger + keltner · ftse h4 atr stops ftse 100 · velas de 4 horas · stops en atr">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4-atr-stops/" data-despliega="d-bollinger-keltner-ftse-h4-atr-stops">Vientos del Oeste (stops ATR)</a><br><span class="tecnico">Bollinger + Keltner · FTSE H4 ATR stops</span><br><span class="quien">FTSE 100 · velas de 4 horas · stops en ATR</span></td>
   <td>30 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -289,8 +865,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4-atr-stops/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-session-low-sp-d1/">Ariadna</a><br><span class="tecnico">Bollinger + session low · S&amp;P D1</span><br><span class="quien">S&amp;P 500 · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-keltner-ftse-h4-atr-stops" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +88 % en total, 96 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.2 0.4,78.1 7.1,79.4 7.4,78.5 10.6,76.9 13.5,75.7 22.3,74.6 26.0,75.9 26.4,78.2 30.3,76.3 41.7,78.8 42.1,77.5 43.1,76.4 45.8,78.0 47.0,76.0 53.1,78.3 55.8,76.3 62.5,75.3 62.8,73.7 63.2,72.5 73.9,71.1 74.7,69.7 79.3,68.9 83.1,67.9 85.2,66.5 88.5,68.0 102.9,65.3 103.4,64.3 105.2,65.8 106.1,63.4 110.0,62.4 114.8,61.2 115.7,62.8 115.8,64.6 116.5,63.7 118.6,61.4 119.1,59.6 121.2,57.6 122.7,54.9 122.8,58.1 127.1,57.0 127.6,55.8 131.6,54.0 137.7,52.7 140.8,51.1 141.6,49.7 144.8,48.5 148.2,46.9 150.0,41.3 150.3,51.9 150.7,65.8 151.3,56.5 158.3,54.5 159.5,52.4 160.0,50.7 161.4,53.0 161.8,51.3 163.5,49.3 165.0,52.0 165.3,49.5 171.1,47.0 178.1,45.2 189.7,46.8 190.3,43.8 195.3,46.8 195.9,53.0 199.6,50.8 203.1,48.0 207.7,46.1 209.9,50.1 214.1,52.8 219.2,54.5 219.9,51.7 220.3,49.3 222.6,50.9 223.1,49.8 224.7,48.5 229.5,47.2 232.6,45.5 234.1,43.8 247.7,42.3 248.0,40.9 248.1,39.4 250.8,37.8 260.0,39.6 260.5,37.5 267.0,27.9 267.5,22.2 272.2,20.4 288.6,15.7 288.7,19.9 289.3,16.4 291.7,13.7 292.1,10.4 298.3,8.6 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>96 en 13,1 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,61</dd></div>
+      <div><dt>Ganadas</dt><dd>75,0 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>1,96</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,70 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+5,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>85 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 30 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-keltner-ftse-h4-atr-stops/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="15" data-precio="100" data-record="0" data-dias="14" data-juez="84" data-pf="3.766834208422709" data-anual="0.2198" data-nombre="ariadna" data-buscar="ariadna bollinger + session low · s&amp;p d1 s&amp;p 500 · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-session-low-sp-d1/" data-despliega="d-bollinger-session-low-sp-d1">Ariadna</a><br><span class="tecnico">Bollinger + session low · S&amp;P D1</span><br><span class="quien">S&amp;P 500 · velas diarias</span></td>
   <td>30 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -302,8 +918,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-session-low-sp-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-session-low-sp-d1-atr-stops/">Ariadna (stops ATR)</a><br><span class="tecnico">Bollinger + session low · S&amp;P D1 ATR stops</span><br><span class="quien">S&amp;P 500 · velas diarias · stops en ATR</span></td>
+<tr class="desplegado" id="d-bollinger-session-low-sp-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2012–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +1681 % en total, 80 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.8 1.5,79.7 3.7,79.7 4.4,79.5 13.7,79.6 26.2,79.5 27.3,79.0 33.3,78.7 37.9,78.7 38.5,78.6 38.9,78.7 51.9,78.7 52.7,79.0 53.3,78.8 55.0,77.8 57.5,77.6 61.8,77.4 66.7,77.2 68.1,77.3 71.0,76.8 71.3,77.0 73.7,76.3 77.3,76.0 81.3,75.4 88.5,74.6 88.8,74.4 94.8,74.4 95.1,74.4 107.5,74.1 109.4,73.9 110.6,73.3 112.2,73.0 129.9,72.9 136.0,72.0 136.8,71.8 138.4,71.5 140.4,71.6 148.0,70.9 148.3,70.9 152.8,68.5 156.3,69.4 163.0,68.5 164.8,69.0 175.6,68.8 179.0,66.0 183.6,64.4 184.4,62.3 185.3,65.2 186.1,63.8 193.6,62.8 196.8,64.6 197.8,64.7 200.7,66.6 201.0,66.3 204.0,66.1 205.6,62.6 206.4,64.2 209.2,66.7 212.2,64.9 217.8,63.8 222.6,62.3 226.6,62.6 227.3,61.1 227.7,59.7 230.1,61.2 240.9,56.1 250.2,57.9 250.7,57.3 255.8,58.4 257.2,50.9 259.2,41.1 261.8,38.3 268.7,45.8 270.2,23.1 280.8,23.3 283.1,16.9 294.8,17.6 297.1,22.6 297.9,6.8 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>80 en 14,5 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,46</dd></div>
+      <div><dt>Ganadas</dt><dd>67,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>3,77</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+4,13 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+22,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>84 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 30 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-session-low-sp-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="16" data-precio="100" data-record="0" data-dias="14" data-juez="84" data-pf="3.511200206659497" data-anual="0.1472" data-nombre="ariadna (stops atr)" data-buscar="ariadna (stops atr) bollinger + session low · s&amp;p d1 atr stops s&amp;p 500 · velas diarias · stops en atr">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-session-low-sp-d1-atr-stops/" data-despliega="d-bollinger-session-low-sp-d1-atr-stops">Ariadna (stops ATR)</a><br><span class="tecnico">Bollinger + session low · S&amp;P D1 ATR stops</span><br><span class="quien">S&amp;P 500 · velas diarias · stops en ATR</span></td>
   <td>30 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -315,8 +971,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-session-low-sp-d1-atr-stops/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-dip-ezu-d1/">Telémaco</a><br><span class="tecnico">Bollinger dip · EZU D1</span><br><span class="quien">EZU, ETF de bolsa de la eurozona · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-session-low-sp-d1-atr-stops" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2012–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2012–2026: +631 % en total, 80 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.6 1.5,79.5 3.7,79.4 4.4,79.0 13.7,79.3 26.2,79.0 27.3,78.3 33.3,77.7 37.9,77.8 38.5,77.5 38.9,77.7 51.9,77.8 52.7,78.2 53.3,77.8 55.0,76.1 57.5,75.9 61.8,75.6 66.7,75.3 68.1,75.4 71.0,74.6 71.3,74.9 73.7,73.8 77.3,73.4 81.3,72.5 88.5,71.4 88.8,71.2 94.8,71.1 95.1,71.2 107.5,70.6 109.4,70.4 110.6,69.7 112.2,69.2 129.9,69.0 136.0,67.9 136.8,67.6 138.4,67.2 140.4,67.4 148.0,66.4 148.3,66.5 152.8,63.4 156.3,64.5 163.0,63.3 164.8,64.0 175.6,63.7 179.0,60.3 183.6,58.5 184.4,56.1 185.3,59.3 186.1,57.6 193.6,56.6 196.7,61.1 197.8,61.3 200.7,63.3 201.0,62.9 204.0,62.7 205.6,58.9 206.4,60.5 209.2,63.2 212.2,61.2 217.8,60.0 222.6,58.5 226.6,58.8 227.3,57.3 227.7,55.8 230.1,57.3 240.9,52.2 250.2,53.9 250.7,53.3 255.8,54.4 257.2,47.0 259.2,38.2 261.8,35.9 268.7,42.0 270.2,19.7 280.8,19.8 283.1,14.7 294.8,15.3 297.1,19.2 297.9,6.6 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>80 en 14,5 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,46</dd></div>
+      <div><dt>Ganadas</dt><dd>67,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>3,51</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,77 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+14,7 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>84 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 30 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-session-low-sp-d1-atr-stops/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="etf" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="17" data-precio="100" data-record="0" data-dias="14" data-juez="" data-pf="2.681369915004543" data-anual="0.1452" data-nombre="telemaco" data-buscar="telemaco bollinger dip · ezu d1 ezu, etf de bolsa de la eurozona · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-dip-ezu-d1/" data-despliega="d-bollinger-dip-ezu-d1">Telémaco</a><br><span class="tecnico">Bollinger dip · EZU D1</span><br><span class="quien">EZU, ETF de bolsa de la eurozona · velas diarias</span></td>
   <td>31 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -328,8 +1024,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-dip-ezu-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/mfi-session-close-iwm-h4/">Héspero</a><br><span class="tecnico">MFI + session close · IWM H4</span><br><span class="quien">IWM, ETF de pequeñas empresas de EE. UU. · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-bollinger-dip-ezu-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2018–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2018–2026: +199 % en total, 139 operaciones">
+<line x1="0" y1="79.9" x2="300" y2="79.9" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.9 0.0,80.0 1.2,79.6 1.7,79.3 5.0,79.7 6.3,78.5 7.5,78.6 9.0,77.1 11.1,76.5 13.4,75.9 16.9,75.9 18.3,76.3 19.1,76.8 19.2,76.3 23.2,75.8 32.5,75.3 33.0,75.9 35.5,75.4 36.1,75.0 41.1,76.2 42.3,75.5 42.7,76.0 43.2,76.1 45.1,74.9 46.5,74.8 47.2,74.2 47.4,74.2 58.9,73.9 59.4,73.0 62.2,72.1 62.3,73.2 62.4,72.5 64.3,71.7 64.6,68.9 65.7,68.2 66.6,69.6 83.5,69.6 85.0,68.4 85.7,68.2 86.0,68.3 87.5,65.4 96.4,64.6 100.0,63.8 113.6,61.7 116.3,60.4 116.9,59.3 120.0,58.8 121.3,58.4 121.5,58.4 121.9,59.5 122.1,58.6 123.5,57.7 127.2,58.2 127.3,59.1 127.6,58.8 128.0,58.8 129.1,57.7 130.0,56.0 133.7,54.6 134.1,54.4 134.8,52.9 135.8,51.6 137.0,47.6 139.0,46.5 142.6,46.1 143.7,44.4 144.2,45.0 144.4,43.9 145.6,42.3 147.6,41.5 147.7,42.3 147.9,40.3 148.4,42.8 149.3,42.7 151.2,42.1 154.2,41.1 155.5,42.1 157.7,49.3 158.2,49.0 158.5,50.4 159.2,49.7 174.6,49.1 176.0,49.1 182.7,49.7 183.3,52.3 183.8,51.6 184.6,50.8 185.3,50.8 186.7,48.9 190.9,48.9 191.0,49.6 191.1,49.2 191.6,49.0 191.9,48.9 193.7,50.2 194.9,53.1 196.2,53.4 197.4,55.6 198.0,55.5 199.0,51.9 209.0,50.5 215.8,49.8 216.8,49.2 218.1,45.3 219.7,44.5 221.8,43.4 222.2,43.7 222.4,44.8 222.9,44.2 223.7,44.3 223.8,43.7 225.0,43.4 225.4,42.4 226.8,40.7 227.9,36.1 234.0,35.0 235.0,34.6 235.8,33.9 237.1,38.1 237.9,39.1 238.0,38.9 239.2,34.3 240.8,33.9 242.1,32.6 242.9,32.2 251.5,27.1 252.8,24.8 264.4,19.4 266.7,17.8 267.9,16.3 270.6,14.2 274.9,10.5 285.7,14.2 287.1,14.9 287.7,14.2 288.5,8.1 299.1,6.9 299.7,6.0 299.9,8.0 300.0,6.2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>139 en 8,1 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,43</dd></div>
+      <div><dt>Ganadas</dt><dd>71,2 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,68</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,82 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+14,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 31 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="sube">▲ +2,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>0,0 %</dd></div>
+      <div><dt>Operaciones</dt><dd>1</dd></div>
+      <div><dt>Ganadas</dt><dd>100 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,54 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-dip-ezu-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="etf" data-velas="H4" data-horario="eeuu" data-origen="bfx" data-pos="18" data-precio="100" data-record="0" data-dias="14" data-juez="85" data-pf="3.006831423130561" data-anual="0.2554" data-nombre="hespero" data-buscar="hespero mfi + session close · iwm h4 iwm, etf de pequenas empresas de ee. uu. · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/mfi-session-close-iwm-h4/" data-despliega="d-mfi-session-close-iwm-h4">Héspero</a><br><span class="tecnico">MFI + session close · IWM H4</span><br><span class="quien">IWM, ETF de pequeñas empresas de EE. UU. · velas de 4 horas</span></td>
   <td>31 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -341,8 +1077,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/mfi-session-close-iwm-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/cci-rebound-ibb-d1/">Telipinu</a><br><span class="tecnico">CCI rebound · IBB D1</span><br><span class="quien">IBB, ETF de biotecnología · velas diarias</span></td>
+<tr class="desplegado" id="d-mfi-session-close-iwm-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2017–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2017–2026: +765 % en total, 102 operaciones">
+<line x1="0" y1="79.7" x2="300" y2="79.7" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.7 0.0,80.0 0.4,79.6 2.2,79.3 3.7,79.2 6.1,78.7 10.9,78.6 31.0,78.3 44.1,77.9 46.7,77.7 50.6,79.0 52.1,78.5 52.6,78.3 67.4,78.1 67.8,77.6 71.5,77.7 73.3,77.6 74.4,77.1 75.1,77.3 75.6,77.0 76.9,76.5 83.6,76.2 90.1,75.6 92.0,75.2 93.1,76.5 97.5,75.8 102.2,75.5 103.0,74.5 108.2,74.3 109.6,74.6 117.6,73.7 121.3,72.6 121.9,72.2 123.7,71.7 129.0,71.7 130.9,70.3 138.7,70.3 141.7,70.5 143.5,70.6 147.6,70.0 149.6,68.0 149.8,65.9 150.9,64.2 152.2,64.5 154.6,63.0 158.9,62.5 163.4,60.8 171.4,60.3 181.6,63.5 182.4,62.3 185.8,62.8 192.2,61.9 193.4,59.9 194.3,58.3 198.9,57.2 202.9,62.3 204.8,61.0 206.0,60.7 209.8,61.6 215.8,62.7 217.0,63.3 217.4,62.4 220.5,62.2 227.1,63.0 229.7,62.2 237.4,61.8 238.9,58.9 240.1,59.4 241.7,59.7 244.8,63.2 244.9,61.5 246.1,61.6 249.7,59.6 251.4,62.1 251.6,60.7 252.2,58.7 253.9,55.7 254.5,50.5 257.6,49.1 260.5,48.7 264.2,48.6 267.3,46.1 267.8,45.4 271.3,45.3 272.5,45.8 272.8,42.9 273.8,50.7 274.0,51.3 277.7,52.2 280.0,51.1 280.3,47.4 280.7,43.8 281.8,42.3 283.4,36.0 284.0,32.8 287.9,28.7 289.6,25.1 290.7,21.4 293.1,18.6 293.7,15.4 293.9,10.8 295.0,6.7 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>102 en 9,5 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,90</dd></div>
+      <div><dt>Ganadas</dt><dd>74,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>3,01</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+2,28 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+25,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>85 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 31 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/mfi-session-close-iwm-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="etf" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="19" data-precio="100" data-record="0" data-dias="14" data-juez="83" data-pf="7.662840892082019" data-anual="0.6238" data-nombre="telipinu" data-buscar="telipinu cci rebound · ibb d1 ibb, etf de biotecnologia · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/cci-rebound-ibb-d1/" data-despliega="d-cci-rebound-ibb-d1">Telipinu</a><br><span class="tecnico">CCI rebound · IBB D1</span><br><span class="quien">IBB, ETF de biotecnología · velas diarias</span></td>
   <td>31 oct 2026</td>
   <td class="n">14 d</td>
   <td class="n">100 $</td>
@@ -354,8 +1130,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/cci-rebound-ibb-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-fade-cci-audcad-h4/">Vertumno</a><br><span class="tecnico">Bollinger fade + CCI · AUDCAD H4</span><br><span class="quien">AUD/CAD · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-cci-rebound-ibb-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2018–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2018–2026: +6475 % en total, 65 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.8 6.6,79.7 14.3,79.6 17.3,79.7 21.9,79.6 26.3,79.5 28.4,79.3 38.3,79.2 51.8,79.3 53.9,79.5 55.7,79.5 59.0,79.3 67.2,79.3 69.7,79.0 72.4,78.8 74.5,78.2 85.8,77.7 86.3,78.0 89.5,77.8 90.8,77.4 101.1,76.3 101.8,75.8 108.2,75.2 110.1,75.1 114.4,74.1 120.2,73.6 125.7,73.5 126.4,73.1 129.1,72.6 132.8,72.3 134.3,72.3 139.6,70.5 145.4,69.5 149.1,71.3 152.3,70.6 159.7,69.6 178.9,70.2 182.1,70.1 184.1,70.0 185.4,70.0 192.9,70.2 197.6,69.8 199.7,68.4 208.0,68.0 209.4,67.8 209.6,67.4 213.5,67.2 216.9,66.1 220.0,65.5 229.7,64.4 234.7,63.6 236.8,60.9 244.8,60.3 248.0,60.1 250.8,57.7 272.7,40.9 274.7,43.6 276.2,45.6 279.4,44.6 283.4,49.0 286.8,42.9 288.7,41.9 289.5,38.6 298.7,18.3 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>65 en 8,6 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,63</dd></div>
+      <div><dt>Ganadas</dt><dd>81,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>7,66</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+7,32 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+62,4 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>83 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 31 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 20.0,42.0 40.0,42.0 60.0,42.0 80.0,42.0 100.0,42.0 120.0,42.0 140.0,42.0 160.0,42.0 180.0,42.0 200.0,42.0 220.0,42.0 240.0,42.0 260.0,42.0 280.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>14 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/cci-rebound-ibb-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="divisas" data-velas="H4" data-horario="24-5" data-origen="bfx" data-pos="20" data-precio="100" data-record="0" data-dias="13" data-juez="92" data-pf="2.309606376725524" data-anual="0.2383" data-nombre="vertumno" data-buscar="vertumno bollinger fade + cci · audcad h4 aud/cad · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/bollinger-fade-cci-audcad-h4/" data-despliega="d-bollinger-fade-cci-audcad-h4">Vertumno</a><br><span class="tecnico">Bollinger fade + CCI · AUDCAD H4</span><br><span class="quien">AUD/CAD · velas de 4 horas</span></td>
   <td>31 oct 2026</td>
   <td class="n">13 d</td>
   <td class="n">100 $</td>
@@ -367,8 +1183,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bollinger-fade-cci-audcad-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/rsi-dip-macd-divergence-cac-d1/">Bizet</a><br><span class="tecnico">RSI dip + MACD divergence · CAC D1</span><br><span class="quien">CAC 40 · velas diarias</span></td>
+<tr class="desplegado" id="d-bollinger-fade-cci-audcad-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2010–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2010–2026: +3458 % en total, 300 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.5,79.9 4.7,79.7 5.4,79.4 7.2,79.3 8.2,79.4 10.6,79.1 13.0,79.2 14.7,79.0 15.5,79.1 17.5,79.0 18.9,78.7 22.9,78.5 24.6,78.5 26.3,78.3 28.7,78.2 29.8,77.9 31.8,78.4 32.6,77.9 34.4,78.2 35.0,77.9 37.1,77.5 38.7,77.4 41.9,77.5 43.6,77.4 45.1,77.6 46.4,77.3 48.0,77.0 50.0,77.2 52.2,77.1 55.2,77.0 57.1,76.9 58.8,76.7 61.8,76.6 65.0,76.7 66.4,76.6 68.1,76.6 70.0,76.7 72.6,77.1 74.0,76.6 75.8,76.4 77.3,76.1 79.3,76.0 81.5,75.8 83.1,75.2 84.1,74.9 85.0,74.5 86.0,73.7 87.2,73.0 89.4,72.7 90.4,73.0 92.0,72.9 93.5,72.3 95.6,72.0 96.7,71.8 98.2,71.2 101.6,72.3 103.1,72.1 104.4,72.2 105.4,72.4 106.9,72.4 108.9,71.2 110.7,71.7 113.4,71.0 114.8,70.5 116.6,69.5 119.7,67.8 121.7,67.0 123.9,66.3 125.7,66.7 127.2,67.4 128.8,66.6 130.9,65.6 131.7,65.1 134.8,63.5 136.2,62.5 137.8,62.6 139.5,62.8 141.7,61.7 144.3,62.6 145.8,62.1 151.9,62.9 153.3,62.2 155.3,62.5 157.7,61.5 158.9,61.7 161.3,64.6 163.6,63.7 165.4,63.4 169.5,63.5 172.4,62.6 174.2,62.9 175.4,62.2 178.2,62.8 182.5,63.6 183.6,64.1 186.7,64.4 187.4,62.8 187.8,61.1 189.6,59.9 192.6,60.4 195.6,62.2 198.0,61.8 201.9,62.6 204.2,61.6 206.4,61.0 210.4,60.2 211.5,59.8 214.1,59.9 214.9,58.9 217.1,60.3 218.7,61.6 221.7,61.7 224.6,60.2 226.7,57.6 229.3,55.1 231.1,56.1 232.0,55.9 233.2,52.6 234.3,50.6 236.8,48.0 238.9,46.0 240.1,46.1 242.4,42.3 244.9,43.8 246.5,42.7 248.0,41.4 250.1,38.3 253.5,35.6 256.8,40.9 258.6,38.9 261.6,38.6 263.6,38.3 267.6,38.4 270.2,35.5 271.5,32.0 273.9,28.6 275.1,28.5 276.8,26.2 279.2,26.2 281.4,23.9 282.9,21.4 283.8,19.3 285.6,15.3 287.2,19.1 289.9,17.0 291.3,9.6 292.7,6.9 296.9,8.6 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>300 en 16,7 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,50</dd></div>
+      <div><dt>Ganadas</dt><dd>71,7 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,31</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,27 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+23,8 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>92 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 31 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 21.4,42.0 42.9,42.0 64.3,42.0 85.7,42.0 107.1,42.0 128.6,42.0 150.0,42.0 171.4,42.0 192.9,42.0 214.3,42.0 235.7,42.0 257.1,42.0 278.6,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>13 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bollinger-fade-cci-audcad-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="europa" data-origen="bfx" data-pos="21" data-precio="100" data-record="0" data-dias="12" data-juez="78" data-pf="1.6189363042364189" data-anual="0.1115" data-nombre="bizet" data-buscar="bizet rsi dip + macd divergence · cac d1 cac 40 · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/rsi-dip-macd-divergence-cac-d1/" data-despliega="d-rsi-dip-macd-divergence-cac-d1">Bizet</a><br><span class="tecnico">RSI dip + MACD divergence · CAC D1</span><br><span class="quien">CAC 40 · velas diarias</span></td>
   <td>1 nov 2026</td>
   <td class="n">12 d</td>
   <td class="n">100 $</td>
@@ -380,8 +1236,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/rsi-dip-macd-divergence-cac-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/volatility-breakout-gbpjpy-h4/">Volatility breakout · GBPJPY H4</a><br><span class="quien">GBP/JPY · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-rsi-dip-macd-divergence-cac-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +313 % en total, 133 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.0 2.9,80.0 15.7,79.1 17.5,78.0 20.6,76.9 26.5,78.0 29.9,76.9 32.0,75.6 32.5,76.7 32.9,75.5 36.0,76.5 36.4,75.3 38.0,73.9 46.9,75.3 47.1,73.9 47.8,72.5 48.9,71.0 51.4,72.3 51.6,73.7 54.2,72.3 58.2,73.6 60.0,74.9 60.8,76.1 60.9,74.8 62.0,75.9 62.5,74.6 63.8,75.7 65.9,74.4 69.6,75.7 70.1,74.4 70.7,73.0 80.4,72.0 85.6,70.7 97.9,69.2 105.7,68.0 106.5,69.4 107.2,67.7 110.9,66.3 121.6,68.6 122.5,70.1 125.1,68.4 126.0,69.9 127.8,68.4 134.6,69.8 137.1,68.4 140.0,69.8 141.5,68.2 147.9,66.5 152.5,68.0 152.6,69.4 152.9,67.7 153.1,69.1 153.2,70.5 153.4,71.8 153.7,73.0 153.9,71.5 156.7,69.9 159.3,68.3 160.8,66.5 162.1,68.0 165.3,66.2 166.5,64.5 167.5,66.1 167.9,64.2 171.3,62.3 174.3,60.3 179.6,58.1 183.7,60.0 187.5,62.2 192.0,60.1 195.3,61.9 197.5,64.6 197.6,62.6 197.7,64.2 197.8,65.8 198.0,63.9 200.6,62.0 201.7,63.7 203.7,61.6 203.9,63.3 204.5,61.4 206.0,63.0 208.7,64.7 209.4,62.8 210.3,64.5 210.8,62.6 216.3,60.7 220.6,62.4 221.1,60.4 225.3,62.3 226.4,60.4 227.2,58.2 228.9,60.0 229.7,57.9 231.0,55.7 232.0,53.3 233.1,55.4 235.3,53.1 240.1,50.8 246.5,48.4 248.4,50.8 248.7,52.9 249.7,50.4 251.2,47.6 251.7,44.6 252.1,41.6 253.4,44.1 255.0,41.3 256.4,38.1 257.9,40.9 259.4,38.0 260.2,34.5 266.4,37.6 266.7,40.4 266.9,43.0 267.0,39.8 271.3,36.4 272.1,33.0 275.5,29.2 276.7,25.5 280.3,21.5 281.7,17.4 285.4,13.1 287.3,17.0 287.5,12.3 288.1,16.3 288.1,20.0 288.3,15.5 291.0,10.9 291.8,6.0 296.3,10.0 297.9,14.1 300.0,17.9"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>133 en 13,4 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,83</dd></div>
+      <div><dt>Ganadas</dt><dd>58,6 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>1,62</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,19 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+11,2 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>78 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 1 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 23.1,42.0 46.2,42.0 69.2,42.0 92.3,42.0 115.4,42.0 138.5,42.0 161.5,42.0 184.6,42.0 207.7,42.0 230.8,42.0 253.8,42.0 276.9,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>12 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/rsi-dip-macd-divergence-cac-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="divisas" data-velas="H4" data-horario="24-5" data-origen="sqx" data-pos="22" data-precio="100" data-record="0" data-dias="12" data-juez="" data-pf="1.5671480296101232" data-anual="0.0847" data-nombre="volatility breakout · gbpjpy h4" data-buscar="volatility breakout · gbpjpy h4 volatility breakout · gbpjpy h4 gbp/jpy · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/volatility-breakout-gbpjpy-h4/" data-despliega="d-volatility-breakout-gbpjpy-h4">Volatility breakout · GBPJPY H4</a><br><span class="quien">GBP/JPY · velas de 4 horas</span></td>
   <td>2 nov 2026</td>
   <td class="n">12 d</td>
   <td class="n">100 $</td>
@@ -393,8 +1289,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/volatility-breakout-gbpjpy-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/session-low-dip-stochastic-silver-d1/">Wilcox</a><br><span class="tecnico">Session-low dip + Stochastic · Silver D1</span><br><span class="quien">XAG/USD · velas diarias</span></td>
+<tr class="desplegado" id="d-volatility-breakout-gbpjpy-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2010–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2010–2026: +293 % en total, 300 operaciones">
+<line x1="0" y1="78.8" x2="300" y2="78.8" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,78.8 2.1,77.9 3.5,75.4 8.9,76.5 9.7,77.2 12.4,76.6 14.8,76.0 16.5,76.7 18.9,77.7 19.9,78.4 22.1,78.3 24.3,79.3 28.0,79.9 29.8,79.4 30.2,80.0 31.6,79.7 33.7,79.2 35.0,78.8 37.1,77.8 37.8,77.6 38.4,77.1 44.3,78.1 46.2,77.7 48.1,76.7 50.1,76.9 51.1,75.3 51.8,75.1 53.1,73.4 54.9,71.8 56.6,71.0 58.7,70.2 60.7,70.6 62.3,71.9 64.0,71.1 65.3,68.9 66.7,69.8 69.5,69.7 70.9,69.0 75.4,69.3 77.1,69.0 80.2,68.8 83.5,67.8 86.0,67.3 90.0,68.7 90.8,67.3 92.8,68.7 95.1,68.5 97.3,68.9 101.3,66.7 101.7,65.7 107.9,64.5 110.2,63.2 112.2,61.8 113.3,61.5 113.9,60.6 114.5,61.7 116.2,63.4 116.4,64.4 119.7,63.6 122.8,62.7 123.7,63.8 125.5,64.5 129.3,64.3 130.7,63.7 133.1,65.3 133.5,62.7 137.1,60.6 139.6,58.3 140.7,58.4 141.4,60.2 143.1,59.4 143.6,60.5 145.0,60.0 146.3,58.3 149.4,56.8 151.3,57.9 154.0,57.7 156.1,55.8 161.2,57.7 162.8,54.5 165.3,53.3 166.3,52.1 170.4,52.0 171.7,51.3 172.5,52.2 174.2,51.9 174.4,52.8 176.0,53.9 177.2,52.9 178.2,53.8 179.6,53.7 184.1,50.7 185.7,49.4 186.2,51.6 187.5,48.1 188.5,45.5 191.4,42.8 192.6,44.4 194.0,43.9 195.6,43.8 197.4,43.2 198.5,42.2 199.1,41.6 203.2,37.9 205.6,40.5 209.1,40.2 210.3,40.1 213.8,40.1 215.6,38.4 217.4,38.7 218.1,33.9 219.2,33.8 223.4,30.5 225.0,25.2 226.0,23.9 227.8,27.1 229.0,27.6 234.2,23.0 237.4,22.4 239.5,21.2 239.8,18.5 240.8,21.6 242.5,23.8 245.9,26.1 246.5,28.2 247.2,26.7 249.7,22.7 252.1,21.5 253.4,21.3 255.2,15.4 256.6,15.6 262.3,19.1 264.0,21.3 268.6,17.7 270.4,16.3 270.9,18.6 273.0,17.0 274.6,8.7 275.7,8.3 276.6,6.0 277.8,8.6 280.3,8.5 284.2,12.3 284.9,11.7 286.2,13.6 290.1,12.2 294.0,11.5 295.5,12.2 297.9,11.0 300.0,12.7"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>300 en 16,8 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,49</dd></div>
+      <div><dt>Ganadas</dt><dd>46,3 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>1,57</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,49 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+8,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 2 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 23.1,42.0 46.2,42.0 69.2,42.0 92.3,42.0 115.4,42.0 138.5,42.0 161.5,42.0 184.6,42.0 207.7,42.0 230.8,42.0 253.8,42.0 276.9,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>12 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="baja">▼ −1,3 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−1,3 %</dd></div>
+      <div><dt>Operaciones</dt><dd>1</dd></div>
+      <div><dt>Ganadas</dt><dd>0 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>−1,33 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/volatility-breakout-gbpjpy-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="metales" data-velas="D1" data-horario="24-5" data-origen="bfx" data-pos="23" data-precio="100" data-record="0" data-dias="7" data-juez="85" data-pf="2.5151042746981247" data-anual="0.2019" data-nombre="wilcox" data-buscar="wilcox session-low dip + stochastic · silver d1 xag/usd · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/session-low-dip-stochastic-silver-d1/" data-despliega="d-session-low-dip-stochastic-silver-d1">Wilcox</a><br><span class="tecnico">Session-low dip + Stochastic · Silver D1</span><br><span class="quien">XAG/USD · velas diarias</span></td>
   <td>6 nov 2026</td>
   <td class="n">7 d</td>
   <td class="n">100 $</td>
@@ -406,8 +1342,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/session-low-dip-stochastic-silver-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/volatility-calm-usdjpy-h1/">Volatility calm · USDJPY H1</a><br><span class="quien">USD/JPY · velas de 1 hora</span></td>
+<tr class="desplegado" id="d-session-low-dip-stochastic-silver-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2015–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2015–2026: +762 % en total, 141 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.8 1.5,79.3 2.1,79.3 2.7,79.1 6.0,79.0 7.9,78.7 20.1,79.0 20.5,79.0 20.8,79.2 25.0,79.4 27.2,79.6 29.1,79.7 29.6,79.6 33.9,78.6 34.5,78.6 34.8,78.6 38.3,77.1 39.5,77.2 40.4,76.9 52.6,76.8 54.5,76.6 58.4,76.7 65.8,76.8 66.8,76.7 67.4,76.8 68.6,76.8 69.0,77.0 72.8,77.0 73.6,77.1 77.7,77.2 81.4,77.3 83.6,77.4 88.1,77.5 95.7,77.6 97.4,77.7 100.9,77.7 101.4,77.9 102.8,77.7 103.7,77.7 104.3,77.7 104.8,77.8 106.1,77.9 114.4,77.8 115.5,77.9 116.6,77.5 117.3,77.4 118.0,77.2 118.5,77.3 119.4,76.6 120.3,76.7 123.2,76.8 128.2,76.8 128.7,76.7 129.6,77.1 137.9,76.4 138.5,76.3 138.9,76.2 139.6,76.2 140.5,76.4 142.3,74.5 143.0,72.3 143.9,73.4 144.4,72.8 145.4,72.5 149.2,71.9 149.3,72.4 149.9,72.1 151.8,72.7 152.7,72.0 154.6,72.7 155.5,70.2 156.2,70.2 157.2,70.1 158.1,70.9 161.6,71.1 162.5,70.6 163.4,70.6 163.5,70.9 164.8,71.0 171.4,71.0 175.0,70.7 180.7,70.0 183.6,69.8 194.5,70.1 200.3,70.6 201.3,68.9 202.1,68.8 203.8,69.4 211.6,66.6 212.1,66.6 212.2,66.9 212.9,67.0 213.4,67.3 213.6,67.6 219.0,68.2 220.5,70.2 221.6,70.8 226.2,71.0 228.2,70.9 237.3,68.2 238.0,69.6 238.9,69.5 239.7,66.6 241.7,66.7 242.2,66.8 246.9,67.6 247.5,67.7 248.8,64.6 249.0,65.4 249.4,64.9 249.7,65.5 250.8,61.9 251.4,63.0 257.3,63.5 258.9,63.8 260.0,64.1 262.1,64.2 266.4,62.1 267.6,59.9 268.0,59.3 269.4,58.4 270.8,59.7 271.3,60.1 272.3,59.4 273.4,57.9 273.9,57.6 275.5,52.8 276.0,53.8 276.8,58.4 279.9,53.8 280.3,48.4 280.7,42.1 281.6,34.9 282.1,26.6 282.9,17.0 285.6,26.6 296.5,17.0 298.5,11.1 298.8,9.7 299.5,6.0 300.0,14.3"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>141 en 11,7 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,00</dd></div>
+      <div><dt>Ganadas</dt><dd>51,1 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,52</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,72 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+20,2 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>85 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 6 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 37.5,42.0 75.0,42.0 112.5,42.0 150.0,42.0 187.5,42.0 225.0,42.0 262.5,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>7 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/session-low-dip-stochastic-silver-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="divisas" data-velas="H1" data-horario="24-5" data-origen="sqx" data-pos="24" data-precio="100" data-record="0" data-dias="5" data-juez="" data-pf="1.7331690927208379" data-anual="0.1157" data-nombre="volatility calm · usdjpy h1" data-buscar="volatility calm · usdjpy h1 volatility calm · usdjpy h1 usd/jpy · velas de 1 hora">
+  <td><a class="robot" href="/067e93f98c/es/robots/volatility-calm-usdjpy-h1/" data-despliega="d-volatility-calm-usdjpy-h1">Volatility calm · USDJPY H1</a><br><span class="quien">USD/JPY · velas de 1 hora</span></td>
   <td>9 nov 2026</td>
   <td class="n">5 d</td>
   <td class="n">100 $</td>
@@ -419,8 +1395,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/volatility-calm-usdjpy-h1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/bearish-engulfing-dip-ema-exit-jpmorgan-d1/">Triptólemo</a><br><span class="tecnico">Bearish engulfing dip + EMA exit · JPMorgan D1</span><br><span class="quien">JPMorgan Chase · velas diarias</span></td>
+<tr class="desplegado" id="d-volatility-calm-usdjpy-h1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2010–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2010–2026: +531 % en total, 300 operaciones">
+<line x1="0" y1="77.9" x2="300" y2="77.9" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,77.9 1.0,78.9 2.0,79.0 4.1,77.7 8.9,77.9 11.4,78.3 13.9,78.5 15.7,78.5 18.5,78.1 20.4,78.2 21.9,77.4 23.8,78.2 26.0,79.0 28.0,79.1 30.8,79.5 33.4,79.5 35.4,80.0 37.1,79.6 38.3,78.5 39.5,78.1 41.8,78.6 44.4,78.0 45.8,78.4 48.5,78.0 50.1,77.7 52.0,76.8 53.3,75.1 54.7,73.2 56.6,73.1 59.1,71.9 61.5,70.8 63.6,71.2 65.3,69.8 68.3,69.1 69.6,68.6 70.9,68.2 73.4,69.9 75.6,69.0 78.6,69.4 81.0,69.5 82.0,69.7 84.3,66.3 86.1,65.0 87.3,65.3 88.9,63.5 91.5,63.9 93.3,64.1 94.9,64.4 97.0,62.7 99.5,63.0 103.2,62.0 105.2,61.9 107.9,61.5 110.8,59.6 112.1,59.7 113.3,60.8 116.1,58.2 117.3,58.5 118.6,60.3 120.0,62.1 121.4,62.3 122.4,62.5 123.6,62.2 125.8,61.6 127.9,61.3 130.6,60.6 132.8,61.5 135.6,60.9 137.7,60.9 140.8,61.3 143.9,60.7 146.5,61.5 148.0,60.5 149.7,60.7 151.8,59.7 154.1,60.5 155.5,60.6 157.5,61.4 159.9,62.3 162.4,61.5 164.0,61.8 166.8,61.6 170.1,62.4 172.3,62.7 174.0,62.4 176.4,62.0 178.6,61.6 180.5,60.3 182.8,60.3 185.6,60.0 187.8,61.0 190.0,61.7 193.3,60.7 196.1,61.7 197.9,61.0 199.1,60.0 202.3,58.6 204.4,58.2 206.8,57.5 208.1,58.8 209.4,58.6 211.3,57.4 213.7,57.4 215.7,56.5 217.6,53.7 218.7,52.1 221.2,47.3 222.5,46.2 223.5,48.0 224.9,46.7 226.6,44.6 227.6,44.2 231.3,41.8 233.1,40.5 234.2,40.6 236.4,40.9 238.3,37.6 240.0,35.0 242.7,32.1 244.0,33.9 245.4,35.5 247.5,34.2 249.1,38.4 250.9,33.1 253.0,30.7 254.6,27.6 255.9,27.0 257.7,26.5 260.5,27.5 262.1,29.9 263.2,25.1 264.8,20.2 266.2,23.9 267.5,22.7 271.0,24.5 273.5,22.1 275.7,17.5 277.5,18.1 279.6,20.3 280.9,16.0 282.9,10.3 285.1,8.5 286.5,9.7 288.3,6.0 290.0,6.8 291.4,10.5 293.4,6.8 296.0,7.3 298.1,8.3 300.0,12.3"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>300 en 16,8 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,49</dd></div>
+      <div><dt>Ganadas</dt><dd>52,0 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>1,73</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,66 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+11,6 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 9 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 50.0,42.0 100.0,42.0 150.0,42.0 200.0,42.0 250.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>5 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/volatility-calm-usdjpy-h1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="acciones" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="25" data-precio="100" data-record="0" data-dias="3" data-juez="" data-pf="5.892120350061888" data-anual="0.3854" data-nombre="triptolemo" data-buscar="triptolemo bearish engulfing dip + ema exit · jpmorgan d1 jpmorgan chase · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/bearish-engulfing-dip-ema-exit-jpmorgan-d1/" data-despliega="d-bearish-engulfing-dip-ema-exit-jpmorgan-d1">Triptólemo</a><br><span class="tecnico">Bearish engulfing dip + EMA exit · JPMorgan D1</span><br><span class="quien">JPMorgan Chase · velas diarias</span></td>
   <td>10 nov 2026</td>
   <td class="n">3 d</td>
   <td class="n">100 $</td>
@@ -432,8 +1448,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/bearish-engulfing-dip-ema-exit-jpmorgan-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/narrowing-range-dip-audnzd-d1/">Southerly Buster</a><br><span class="tecnico">Narrowing range dip · AUDNZD D1</span><br><span class="quien">AUD/NZD · velas diarias</span></td>
+<tr class="desplegado" id="d-bearish-engulfing-dip-ema-exit-jpmorgan-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2017–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2017–2026: +2105 % en total, 58 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.9 8.1,80.0 11.3,79.9 23.3,79.3 25.5,78.8 29.9,78.5 31.2,78.3 32.7,78.2 38.2,78.0 45.0,78.5 59.4,78.3 66.7,77.8 70.6,77.7 74.2,77.1 82.5,77.1 101.5,77.4 103.0,77.5 103.8,77.3 110.3,77.5 115.7,76.8 119.4,76.1 130.4,75.8 131.8,74.9 134.1,73.9 139.6,73.0 140.8,71.0 141.5,70.8 144.9,69.9 146.1,68.8 146.9,68.7 152.1,69.8 153.0,67.1 161.9,68.0 169.8,67.5 183.3,66.7 191.6,64.6 192.2,65.2 201.8,64.7 203.9,64.6 213.0,61.8 218.1,58.0 221.1,57.5 222.1,59.3 234.1,56.2 235.1,55.9 240.5,58.3 244.2,55.0 246.2,49.6 260.2,46.3 262.6,42.6 271.5,37.6 278.3,46.8 283.9,39.8 290.3,39.8 292.0,31.5 294.0,21.8 299.5,9.8 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>58 en 9,5 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,51</dd></div>
+      <div><dt>Ganadas</dt><dd>77,6 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>5,89</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+5,83 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+38,5 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 10 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 75.0,42.0 150.0,42.0 225.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>3 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/bearish-engulfing-dip-ema-exit-jpmorgan-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="divisas" data-velas="D1" data-horario="24-5" data-origen="bfx" data-pos="26" data-precio="100" data-record="0" data-dias="3" data-juez="" data-pf="1.8602139398961934" data-anual="0.0617" data-nombre="southerly buster" data-buscar="southerly buster narrowing range dip · audnzd d1 aud/nzd · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/narrowing-range-dip-audnzd-d1/" data-despliega="d-narrowing-range-dip-audnzd-d1">Southerly Buster</a><br><span class="tecnico">Narrowing range dip · AUDNZD D1</span><br><span class="quien">AUD/NZD · velas diarias</span></td>
   <td>10 nov 2026</td>
   <td class="n">3 d</td>
   <td class="n">100 $</td>
@@ -445,8 +1501,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/narrowing-range-dip-audnzd-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/inside-bar-dip-rsi-exit-eurnok-h4/">Jochumsson</a><br><span class="tecnico">Inside bar dip + RSI exit · EURNOK H4</span><br><span class="quien">EUR/NOK · velas de 4 horas</span></td>
+<tr class="desplegado" id="d-narrowing-range-dip-audnzd-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2007–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2007–2026: +216 % en total, 135 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,78.6 0.1,77.9 0.6,77.1 0.9,76.3 4.8,78.7 6.3,77.9 6.7,77.2 8.6,76.3 10.5,75.4 11.1,74.6 11.5,73.7 11.8,72.9 12.7,72.0 13.6,71.1 14.6,70.1 15.8,73.1 16.2,72.3 16.7,71.4 16.9,70.5 17.3,69.7 17.4,68.7 17.9,71.9 18.1,74.9 18.2,74.1 18.5,73.3 18.9,72.4 19.2,71.6 19.4,70.7 19.6,69.8 19.8,68.9 20.0,68.0 20.3,67.0 20.6,66.0 22.2,64.9 22.5,63.9 22.8,62.8 24.2,61.7 25.2,65.3 25.4,64.3 26.1,63.2 26.7,62.2 31.4,65.4 34.5,64.1 35.6,63.0 39.3,61.5 39.9,60.4 41.3,59.2 42.6,63.0 43.1,61.9 43.4,60.8 46.4,59.5 47.0,58.3 48.2,57.0 48.6,55.9 52.0,54.3 52.4,53.1 55.4,51.5 59.3,55.5 59.4,54.3 59.9,53.1 62.0,57.1 62.1,56.0 62.3,54.8 62.5,53.6 62.7,52.3 65.1,50.8 65.6,49.5 66.6,48.0 72.6,51.9 73.4,50.6 74.2,49.2 85.4,52.3 86.9,50.9 87.2,49.6 89.5,53.9 92.9,57.7 93.3,56.4 94.6,55.1 98.7,58.8 106.3,56.9 109.9,55.3 114.7,58.9 116.2,57.6 119.3,61.3 119.4,60.2 120.3,59.0 120.6,57.9 120.9,56.8 122.2,55.5 122.5,54.3 123.1,53.0 123.7,51.7 125.4,50.2 125.7,48.9 126.1,47.5 128.2,52.0 128.4,50.7 129.0,49.4 133.9,47.4 137.5,51.7 139.5,50.2 149.4,47.6 156.9,45.3 159.3,43.6 166.2,47.6 167.1,46.1 167.9,44.7 171.6,42.8 176.7,47.1 182.3,45.0 189.0,42.7 196.6,46.6 196.9,45.2 197.7,43.8 199.2,42.2 203.2,40.2 219.4,43.0 221.2,41.3 226.0,39.1 228.7,37.2 229.9,35.5 234.8,33.2 236.2,31.3 238.6,36.8 241.4,34.8 264.2,29.5 269.8,27.0 282.9,22.9 284.7,20.8 288.8,18.2 290.2,16.1 293.4,13.5 294.4,11.3 298.2,8.5 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>135 en 19,2 años</dd></div>
+      <div><dt>Al mes</dt><dd>0,59</dd></div>
+      <div><dt>Ganadas</dt><dd>83,0 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>1,86</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,91 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+6,2 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 10 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 75.0,42.0 150.0,42.0 225.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>3 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/narrowing-range-dip-audnzd-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="divisas" data-velas="H4" data-horario="24-5" data-origen="bfx" data-pos="27" data-precio="100" data-record="0" data-dias="3" data-juez="" data-pf="2.4772668889543557" data-anual="0.1035" data-nombre="jochumsson" data-buscar="jochumsson inside bar dip + rsi exit · eurnok h4 eur/nok · velas de 4 horas">
+  <td><a class="robot" href="/067e93f98c/es/robots/inside-bar-dip-rsi-exit-eurnok-h4/" data-despliega="d-inside-bar-dip-rsi-exit-eurnok-h4">Jochumsson</a><br><span class="tecnico">Inside bar dip + RSI exit · EURNOK H4</span><br><span class="quien">EUR/NOK · velas de 4 horas</span></td>
   <td>10 nov 2026</td>
   <td class="n">3 d</td>
   <td class="n">100 $</td>
@@ -458,8 +1554,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/inside-bar-dip-rsi-exit-eurnok-h4/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/moving-average-dip-rsi-exit-visa-d1/">Misuri</a><br><span class="tecnico">Moving-average dip + RSI exit · Visa D1</span><br><span class="quien">Visa · velas diarias</span></td>
+<tr class="desplegado" id="d-inside-bar-dip-rsi-exit-eurnok-h4" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2004–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2004–2026: +766 % en total, 300 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 13.9,79.9 17.3,79.9 32.1,79.1 36.5,78.7 38.2,78.3 42.6,77.9 46.1,77.7 48.4,77.6 51.1,77.5 52.6,77.5 53.7,77.9 53.9,77.2 54.3,77.4 56.5,77.0 56.9,76.3 57.0,76.1 57.7,75.4 59.0,74.8 59.7,74.5 60.3,73.6 61.0,72.7 61.6,71.7 63.4,71.4 63.9,71.7 64.0,71.7 64.5,71.4 66.7,71.1 68.1,71.1 71.1,71.4 72.9,71.6 74.5,72.1 76.2,71.7 82.3,71.3 83.7,71.1 85.3,71.3 88.0,71.3 88.9,71.2 92.0,70.8 92.7,70.2 94.3,69.8 98.8,70.0 107.5,69.9 119.3,70.1 133.7,69.7 138.7,67.7 139.5,67.2 142.6,67.1 147.4,66.9 148.4,66.2 151.8,66.8 153.1,66.0 154.4,65.8 155.2,65.0 163.6,63.8 170.7,62.5 177.9,62.4 179.6,62.1 185.0,61.9 192.4,63.3 196.1,63.6 204.8,63.3 205.0,62.2 206.5,61.5 209.8,59.5 210.0,62.2 210.3,60.1 210.8,65.1 211.3,63.8 211.8,61.7 212.4,59.7 212.5,61.4 213.6,61.0 215.7,60.9 217.3,60.7 218.7,60.6 219.4,59.3 220.2,55.4 221.1,55.7 222.3,55.5 224.0,54.7 225.5,53.8 226.6,53.1 227.8,54.1 228.7,53.3 230.7,52.2 231.2,52.6 233.1,54.1 234.4,54.6 236.2,54.2 236.4,53.8 238.1,54.8 239.1,51.4 239.9,49.3 240.6,50.3 241.5,50.0 242.3,49.7 243.0,49.5 244.7,50.5 245.4,50.4 246.0,49.0 247.0,49.0 247.7,48.6 249.1,46.4 250.1,47.7 251.4,45.1 252.2,43.1 253.0,42.0 253.6,41.4 254.0,39.6 254.9,41.0 256.1,42.4 257.8,39.1 259.0,34.8 260.3,31.0 260.9,29.9 263.8,28.6 266.1,25.1 268.2,26.2 269.3,27.9 270.4,26.3 271.1,27.3 271.3,25.1 273.0,29.4 276.3,28.2 277.4,27.3 278.2,28.2 278.4,27.7 279.5,24.6 280.0,25.7 280.3,24.6 281.2,22.2 282.9,21.5 283.3,20.5 284.5,20.4 286.5,21.1 287.5,19.6 289.5,21.3 290.3,17.1 291.6,16.9 292.7,9.5 294.6,7.6 295.2,8.0 296.3,10.4 297.5,7.3 297.9,6.0 299.1,8.2 299.4,9.6 299.6,8.6 300.0,6.7"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>300 en 21,9 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,14</dd></div>
+      <div><dt>Ganadas</dt><dd>70,3 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,48</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+0,75 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+10,3 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 10 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 75.0,42.0 150.0,42.0 225.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>3 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/inside-bar-dip-rsi-exit-eurnok-h4/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="acciones" data-velas="D1" data-horario="eeuu" data-origen="bfx" data-pos="28" data-precio="100" data-record="0" data-dias="0" data-juez="" data-pf="3.318420619386471" data-anual="0.2779" data-nombre="misuri" data-buscar="misuri moving-average dip + rsi exit · visa d1 visa · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/moving-average-dip-rsi-exit-visa-d1/" data-despliega="d-moving-average-dip-rsi-exit-visa-d1">Misuri</a><br><span class="tecnico">Moving-average dip + RSI exit · Visa D1</span><br><span class="quien">Visa · velas diarias</span></td>
   <td>13 nov 2026</td>
   <td class="n">0 d</td>
   <td class="n">100 $</td>
@@ -471,8 +1607,48 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/moving-average-dip-rsi-exit-visa-d1/">Ver</a></td>
 </tr>
-<tr data-estado="nuevo">
-  <td><a class="robot" href="/067e93f98c/es/robots/momentum-volatility-dax-d1/">Chadwick</a><br><span class="tecnico">Momentum + volatility · DAX D1</span><br><span class="quien">DAX · velas diarias</span></td>
+<tr class="desplegado" id="d-moving-average-dip-rsi-exit-visa-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2018–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2018–2026: +646 % en total, 110 operaciones">
+<line x1="0" y1="80.0" x2="300" y2="80.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,80.0 0.0,79.7 19.7,79.1 21.0,78.4 21.6,77.9 23.1,77.6 24.2,77.0 25.3,76.3 25.9,76.1 27.3,76.9 29.6,76.7 30.6,76.8 30.8,76.6 55.4,76.2 57.5,75.5 70.5,75.0 71.3,73.5 71.6,71.1 72.7,70.8 74.0,68.1 74.9,68.6 75.2,67.9 75.7,67.1 77.0,66.0 77.9,65.0 91.3,64.5 94.0,64.2 95.1,66.1 103.0,65.1 104.2,65.7 109.5,64.2 123.8,63.4 124.5,62.3 125.3,62.1 126.1,62.7 127.0,62.8 127.6,61.6 128.5,60.4 129.0,59.9 129.8,59.8 132.0,59.7 133.9,60.2 134.7,59.5 135.9,59.7 136.0,59.1 136.6,57.2 137.6,57.3 138.8,56.7 139.0,56.5 139.4,56.2 140.2,58.9 143.2,54.6 144.4,59.3 145.9,58.5 148.4,59.1 149.3,57.2 150.0,56.6 150.7,58.5 151.6,57.9 154.2,59.5 154.8,57.8 155.8,57.3 157.1,56.2 161.3,55.9 162.6,56.3 164.8,62.0 166.2,61.2 181.7,60.4 188.8,59.5 189.4,57.8 190.5,56.9 190.8,55.9 201.3,56.8 203.9,56.6 204.5,56.0 223.1,55.8 225.9,55.2 226.4,54.3 227.8,53.3 229.2,52.8 230.2,53.1 231.2,53.5 231.6,52.6 232.9,51.3 257.3,41.4 264.9,35.7 269.4,39.7 272.8,39.4 273.4,36.6 274.0,36.4 274.6,35.6 276.2,33.2 277.9,33.5 278.3,33.3 279.0,32.0 280.0,33.2 281.4,33.1 282.0,23.7 286.6,23.5 288.2,21.1 288.9,22.7 289.6,18.6 291.5,20.5 292.2,17.0 293.1,14.6 293.2,12.7 294.3,8.9 295.7,11.4 296.8,11.6 299.5,9.6 300.0,6.0"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>110 en 8,2 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,12</dd></div>
+      <div><dt>Ganadas</dt><dd>75,5 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>3,32</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,96 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+27,8 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>—</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 13 nov 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 100 $">
+<line x1="0" y1="42.0" x2="300" y2="42.0" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#0B7A50" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,42.0 300.0,42.0"/>
+<circle cx="297" cy="42.0" r="4" fill="#0B7A50" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>0 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="igual">0,0 %</dd></div>
+      <div><dt>Peor caída</dt><dd>—</dd></div>
+      <div><dt>Operaciones</dt><dd>0</dd></div>
+      <div><dt>Ganadas</dt><dd>—</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>—</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/moving-average-dip-rsi-exit-visa-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr data-estado="nuevo" data-clase="indices" data-velas="D1" data-horario="europa" data-origen="bfx" data-pos="29" data-precio="99" data-record="-0.010000000000000009" data-dias="26" data-juez="85" data-pf="2.5905917715573925" data-anual="0.2732" data-nombre="chadwick" data-buscar="chadwick momentum + volatility · dax d1 dax · velas diarias">
+  <td><a class="robot" href="/067e93f98c/es/robots/momentum-volatility-dax-d1/" data-despliega="d-momentum-volatility-dax-d1">Chadwick</a><br><span class="tecnico">Momentum + volatility · DAX D1</span><br><span class="quien">DAX · velas diarias</span></td>
   <td>19 oct 2026</td>
   <td class="n">26 d</td>
   <td class="n">100 $</td>
@@ -484,6 +1660,47 @@
   <td><span class="etiqueta e-nuevo">NUEVO</span></td>
   <td><a href="/067e93f98c/es/robots/momentum-volatility-dax-d1/">Ver</a></td>
 </tr>
+<tr class="desplegado" id="d-momentum-volatility-dax-d1" hidden><td colspan="11"><div class="desplegable">
+  <section class="mitad">
+    <h3>Su backtest · 2013–2026</h3>
+    <p class="mini">Lo que prometía antes de entrar en el tablero, a riesgo igual.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Su backtest a riesgo igual, 2013–2026: +2092 % en total, 178 operaciones">
+<line x1="0" y1="79.8" x2="300" y2="79.8" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#2445E8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,79.8 0.0,79.7 3.5,79.6 6.2,79.7 7.3,79.7 8.2,79.8 12.7,79.7 13.5,79.7 17.9,79.8 19.9,79.9 20.1,80.0 22.1,79.6 24.8,79.6 33.2,79.0 33.9,79.2 35.4,79.1 36.6,78.9 37.7,79.2 41.1,79.4 42.2,79.5 43.9,79.1 47.6,78.9 49.6,78.9 50.8,78.6 53.7,78.5 54.4,78.4 55.7,78.5 57.1,78.4 58.1,78.6 60.1,78.2 62.4,77.7 64.8,77.5 66.2,77.6 83.7,77.5 86.3,77.5 86.7,77.6 86.9,77.6 90.5,76.9 93.2,76.9 95.7,77.2 98.4,77.0 99.0,76.9 99.3,77.1 99.5,77.0 104.0,76.3 105.1,76.2 105.6,76.3 106.9,76.2 107.0,76.3 110.0,76.1 110.3,76.2 111.5,76.4 114.3,76.5 115.0,76.7 116.4,77.0 118.4,76.9 120.6,76.8 123.8,76.7 126.1,76.0 128.1,76.0 130.4,75.8 133.1,75.7 133.3,75.9 133.5,75.8 135.3,75.2 140.4,74.5 141.6,74.8 143.9,74.2 145.1,74.5 147.0,73.5 147.9,72.1 149.4,70.8 156.0,70.5 157.5,70.7 159.7,70.3 161.5,69.3 162.8,67.7 178.2,67.6 180.4,67.7 182.2,67.6 187.0,66.7 187.5,67.1 187.8,67.8 187.9,67.6 189.7,67.1 191.2,65.9 191.5,65.5 191.7,66.1 192.5,69.0 193.0,67.4 194.7,67.1 196.6,66.8 197.1,65.8 197.5,66.7 201.3,67.5 202.5,65.8 205.2,65.8 205.4,65.6 206.4,64.8 206.5,65.5 207.0,65.1 212.2,62.5 214.2,60.1 217.7,58.7 219.9,58.4 222.1,59.0 224.4,57.3 225.8,57.6 227.5,57.9 228.0,58.6 228.4,58.4 230.4,60.2 231.6,60.9 233.4,58.4 236.5,58.8 236.9,58.8 242.8,57.7 243.3,58.9 243.4,58.7 244.2,55.9 247.2,55.1 247.8,56.6 250.1,54.3 251.6,54.7 255.8,54.3 256.5,54.0 259.4,49.6 260.4,45.8 266.2,41.5 266.8,36.8 270.4,34.4 271.2,28.9 274.3,30.5 276.2,29.9 277.1,23.9 279.2,21.9 280.2,23.1 281.6,24.8 285.0,22.1 286.3,21.5 287.5,32.0 287.7,26.2 288.8,18.3 289.3,11.0 292.4,13.6 293.1,15.2 293.7,17.3 295.8,13.9 296.3,6.0 300.0,10.9"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Operaciones</dt><dd>178 en 12,8 años</dd></div>
+      <div><dt>Al mes</dt><dd>1,16</dd></div>
+      <div><dt>Ganadas</dt><dd>60,7 %</dd></div>
+      <div><dt>Factor de beneficio</dt><dd>2,59</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>+1,89 %</dd></div>
+      <div><dt>Al año, a riesgo igual</dt><dd>+27,3 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−20 %</dd></div>
+      <div><dt>Nota del juez</dt><dd>85 / 100</dd></div>
+    </dl>
+  </section>
+  <section class="mitad">
+    <h3>Su cuarentena · desde el 19 oct 2026</h3>
+    <p class="mini">Lo que va haciendo ahora, simulado con sus costes: su precio, día a día.</p>
+    <svg class="chispa" viewBox="0 0 300 84" preserveAspectRatio="none" role="img" aria-label="Precio de cada día desde la salida, de 100 $ a 99 $">
+<line x1="0" y1="34.8" x2="300" y2="34.8" stroke="#B9C3CF" stroke-width="1" stroke-dasharray="3 4"/>
+<polyline fill="none" stroke="#C42B3B" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,34.8 11.1,34.8 22.2,34.8 33.3,34.8 44.4,34.8 55.6,34.8 66.7,34.8 77.8,34.8 88.9,34.8 100.0,34.8 111.1,34.8 122.2,34.8 133.3,49.2 144.4,49.2 155.6,49.2 166.7,49.2 177.8,49.2 188.9,49.2 200.0,49.2 211.1,49.2 222.2,49.2 233.3,49.2 244.4,49.2 255.6,49.2 266.7,49.2 277.8,49.2 288.9,49.2 300.0,49.2"/>
+<circle cx="297" cy="49.2" r="4" fill="#C42B3B" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
+    <dl class="metricas">
+      <div><dt>Días</dt><dd>26 de 180</dd></div>
+      <div><dt>Récord, a riesgo igual</dt><dd class="baja">▼ −4,3 %</dd></div>
+      <div><dt>Peor caída</dt><dd>−4,3 %</dd></div>
+      <div><dt>Operaciones</dt><dd>1</dd></div>
+      <div><dt>Ganadas</dt><dd>0 %</dd></div>
+      <div><dt>Por operación, tras costes</dt><dd>−4,26 %</dd></div>
+      <div><dt>Bate al azar</dt><dd>a los 180 días</dd></div>
+      <div><dt>Frente a su backtest</dt><dd class="igual">Demasiado pronto</dd></div>
+    </dl>
+  </section>
+  <p class="desplegable-pie">Un backtest es el pasado, hecho a la medida; la cuarentena, una simulación sin dinero real. Ninguno de los dos promete nada. <a href="/067e93f98c/es/robots/momentum-volatility-dax-d1/">Su ficha completa</a></p>
+</div></td></tr>
+<tr class="sin-resultados" hidden><td class="vacio" colspan="11">Ningún robot cumple esos filtros.</td></tr>
         </tbody>
       </table>
     </div>

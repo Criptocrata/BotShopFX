@@ -114,9 +114,41 @@ img, svg { max-width: 100%; }
 .tablero { padding-top: 72px; padding-bottom: 80px; }
 .tablero-cabeza { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; }
 .fecha-tablero { margin: 10px 0 0; color: var(--suave); font-weight: 600; }
-.filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+.filtros { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
 .filtros button { font: inherit; font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 999px; border: 1.5px solid #C5CEDA; background: var(--blanco); color: var(--tinta); cursor: pointer; }
 .filtros button[aria-pressed="true"] { border-color: var(--tinta); background: var(--tinta); color: var(--blanco); }
+.filtros button:disabled { color: #8794A3; border-color: var(--raya); background: var(--nube); cursor: default; }
+/* Buscar en el tablero (14-11-2026): por estado, activo, velas, horario y quién lo halló; buscar y ordenar. */
+.filtro-grupo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filtro-titulo { flex: 0 0 180px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--suave); }
+.filtros .cuenta { font-weight: 600; color: var(--suave); }
+.filtros button[aria-pressed="true"] .cuenta { color: #DCE4EE; }
+.filtros button:disabled .cuenta { color: #8794A3; }
+.pista { margin: 6px 0 0; font-size: 14px; color: var(--suave); }
+.buscador { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 20px; margin-top: 28px; }
+.campo-buscar, .campo-orden { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: var(--texto); }
+.campo-buscar { flex: 1 1 280px; }
+.campo-buscar input, .campo-orden select { font: inherit; font-size: 15px; font-weight: 500; min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1.5px solid #9AA8B8; background: var(--blanco); color: var(--tinta); }
+.cuantos { margin: 0 0 11px; font-size: 14px; font-weight: 700; color: var(--suave); }
+.quitar { font: inherit; font-size: 14px; font-weight: 800; color: var(--cobalto); background: none; border: 0; padding: 0 0 11px; cursor: pointer; text-decoration: underline; }
+/* El desplegable de cada robot: su backtest y su cuarentena, con sus gráficos (14-11-2026). */
+.tabla a.robot[aria-expanded]::after { content: " ▾"; color: var(--cobalto); }
+.tabla a.robot[aria-expanded="true"]::after { content: " ▴"; }
+.tabla a.robot[aria-expanded]:hover { color: var(--cobalto); }
+.tabla tr[data-abierta="si"], .tabla tbody tr.desplegado:hover { background: #F5F7FF; }
+.tabla .desplegado td { white-space: normal; padding: 0 0 4px; background: #F5F7FF; }
+/* La tabla es ancha y en un móvil se desliza de lado: el desplegable se queda quieto, del ancho de la pantalla. */
+.desplegable { position: sticky; left: 0; box-sizing: border-box; width: min(100%, calc(100vw - 34px)); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 4px 16px 18px; }
+@media (max-width: 900px) { .desplegable { grid-template-columns: minmax(0, 1fr); } .metricas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mitad { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 20px 22px; }
+.mitad h3 { margin: 0 0 6px; font-size: 17px; font-weight: 800; }
+.mitad .chispa { margin-top: 14px; }
+.metricas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 12px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--raya); }
+.metricas dt { font-size: 12px; color: var(--suave); }
+.metricas dd { margin: 2px 0 0; font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.desplegable-pie { grid-column: 1 / -1; margin: 0; font-size: 13.5px; color: var(--suave); }
+.desplegable-pie a { font-weight: 800; }
+.tabla .sin-resultados td { white-space: normal; }
 .caja-tabla { margin-top: 32px; position: relative; overflow-x: auto; border: 1px solid var(--borde); border-radius: 16px; }
 .tabla { border-collapse: collapse; width: 100%; font-size: 15px; }
 .tabla-ancha { min-width: 1060px; }
@@ -277,4 +309,5 @@ img, svg { max-width: 100%; }
   .precio-hoy { font-size: 64px; }
   .caja-precio .precio-hoy { font-size: 76px; }
   .formula-cuenta .signo { font-size: 40px; padding-bottom: 22px; }
+  .filtro-titulo { flex-basis: 100%; }
 }

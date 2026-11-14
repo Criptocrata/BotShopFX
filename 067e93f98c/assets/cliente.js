@@ -2,7 +2,9 @@
  *   · el bitcoin al cambio del momento, para enseñar cada precio también en BTC;
  *   · la compra: el correo va al cobro, que crea la factura en Plisio, y se salta a ella;
  *   · el estado del pedido en /order/?p=…, con la descarga cuando está pagado.
- * Y filtra el tablero por estado. Sin nada de esto la página se lee igual: los precios en dólares ya están escritos.
+ * Y el tablero (14-11-2026): lo filtra por estado, activo, velas, horario y quién lo halló, busca, ordena y abre el
+ * desplegable de cada robot, con su backtest y su cuarentena. Sin nada de esto la página se lee igual: los precios en
+ * dólares ya están escritos, y el nombre de cada robot lleva a su ficha.
  * En la lengua de la página (<html lang>, 05-11-2026): inglés o español, con sus números. */
 (function () {
   "use strict";
@@ -40,17 +42,96 @@
     }).catch(function () { /* sin cobro, sólo dólares */ });
   }
 
-  /* Los filtros del tablero */
-  var botones = document.querySelectorAll("[data-filtro]");
-  botones.forEach(function (b) {
-    b.addEventListener("click", function () {
-      var filtro = b.getAttribute("data-filtro");
-      botones.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-      document.querySelectorAll("tr[data-estado]").forEach(function (fila) {
-        fila.hidden = filtro !== "todos" && fila.getAttribute("data-estado") !== filtro;
+  /* El tablero: filtros, búsqueda, orden y el desplegable de cada robot (14-11-2026) */
+  var tabla = document.querySelector("table[data-tablero]");
+  if (tabla) {
+    var cuerpoTabla = tabla.querySelector("tbody");
+    var filas = Array.prototype.slice.call(cuerpoTabla.querySelectorAll("tr[data-estado]"));
+    var botones = Array.prototype.slice.call(document.querySelectorAll("button[data-grupo]"));
+    var buscar = document.querySelector("input[data-buscar]");
+    var orden = document.querySelector("select[data-orden]");
+    var cuantos = document.querySelector("[data-cuantos]");
+    var quitar = document.querySelector("button[data-quitar]");
+    var ninguna = cuerpoTabla.querySelector("tr.sin-resultados");
+    var elegido = {};
+    var normal = function (t) { return String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim(); };
+    var enlaceDe = function (fila) { return fila.querySelector("a[data-despliega]"); };
+    var desplegableDe = function (fila) { var a = enlaceDe(fila); return a ? document.getElementById(a.getAttribute("data-despliega")) : null; };
+    // ¿Pasa los filtros elegidos (menos el de `salvo`, para contar lo que daría cada botón de ese grupo) y la búsqueda?
+    var pasa = function (fila, salvo) {
+      for (var g in elegido) {
+        if (g !== salvo && elegido[g] && fila.getAttribute("data-" + g) !== elegido[g]) return false;
+      }
+      var q = normal(buscar && buscar.value);
+      return !q || (fila.getAttribute("data-buscar") || "").indexOf(q) !== -1;
+    };
+    var pintar = function () {
+      var n = 0;
+      filas.forEach(function (fila) {
+        var ver = pasa(fila, null);
+        fila.hidden = !ver;
+        if (ver) n++;
+        var d = desplegableDe(fila);
+        if (d) d.hidden = !ver || fila.getAttribute("data-abierta") !== "si";
+      });
+      botones.forEach(function (b) {
+        var g = b.getAttribute("data-grupo"), v = b.getAttribute("data-filtro");
+        var c = filas.filter(function (f) { return pasa(f, g) && (v === "todos" || f.getAttribute("data-" + g) === v); }).length;
+        var cuenta = b.querySelector(".cuenta");
+        if (cuenta) cuenta.textContent = String(c);
+        var pulsado = (elegido[g] || "todos") === v;
+        b.setAttribute("aria-pressed", pulsado ? "true" : "false");
+        b.disabled = !pulsado && c === 0;
+      });
+      if (ninguna) ninguna.hidden = n > 0;
+      if (cuantos) cuantos.textContent = n === filas.length ? n + " robot" + (n === 1 ? "" : "s") : di(n + " of " + filas.length + " robots", n + " de " + filas.length + " robots");
+      if (quitar) quitar.hidden = !(Object.keys(elegido).some(function (g) { return elegido[g]; }) || normal(buscar && buscar.value));
+    };
+    botones.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.getAttribute("data-filtro");
+        elegido[b.getAttribute("data-grupo")] = v === "todos" ? "" : v;
+        pintar();
       });
     });
-  });
+    if (buscar) buscar.addEventListener("input", pintar);
+    if (quitar) quitar.addEventListener("click", function () { elegido = {}; if (buscar) buscar.value = ""; pintar(); });
+    if (orden) {
+      orden.addEventListener("change", function () {
+        var k = orden.value;
+        var valor = function (f) { var x = f.getAttribute("data-" + k); return x === null || x === "" ? -Infinity : Number(x); };
+        var pos = function (f) { return Number(f.getAttribute("data-pos")); };
+        filas.slice().sort(function (a, b) {
+          if (k === "nombre") return (a.getAttribute("data-nombre") || "").localeCompare(b.getAttribute("data-nombre") || "") || pos(a) - pos(b);
+          if (k === "pos") return pos(a) - pos(b);
+          var d = valor(b) - valor(a);
+          return d === d && d !== 0 ? d : pos(a) - pos(b);
+        }).forEach(function (f) {
+          cuerpoTabla.appendChild(f);
+          var d = desplegableDe(f);
+          if (d) cuerpoTabla.appendChild(d);
+        });
+        if (ninguna) cuerpoTabla.appendChild(ninguna);
+      });
+    }
+    // El nombre abre su desplegable; con Ctrl, Cmd, Mayúsculas o la rueda, su ficha, como cualquier enlace.
+    filas.forEach(function (fila) {
+      var a = enlaceDe(fila);
+      if (!a) return;
+      a.setAttribute("aria-controls", a.getAttribute("data-despliega"));
+      a.setAttribute("aria-expanded", "false");
+      a.addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        var abrir = fila.getAttribute("data-abierta") !== "si";
+        fila.setAttribute("data-abierta", abrir ? "si" : "no");
+        a.setAttribute("aria-expanded", abrir ? "true" : "false");
+        var d = desplegableDe(fila);
+        if (d) d.hidden = !abrir;
+      });
+    });
+    pintar();
+  }
 
   /* La compra */
   var MENSAJES_COMPRA = {
