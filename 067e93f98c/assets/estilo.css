@@ -159,6 +159,8 @@ img, svg { max-width: 100%; }
 .capas button[aria-pressed="false"] { color: var(--suave); text-decoration: line-through; }
 .capas button[aria-pressed="false"] svg { opacity: .35; }
 .recorrido[data-sin-robot] .capa-robot, .recorrido[data-sin-mercado] .capa-mercado { display: none; }
+/* Su mercado entero (15-11-2026): cada vista va dibujada dos veces; con «Su mercado entero» apagado, la de sin él. */
+.recorrido[data-sin-entero] .dibujo-entero, .recorrido:not([data-sin-entero]) .dibujo-igual { display: none; }
 @media (max-width: 640px) { .mandos button { padding: 6px 11px; font-size: 13px; } }
 .metricas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 12px; margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--raya); }
 .metricas dt { font-size: 12px; color: var(--suave); }
